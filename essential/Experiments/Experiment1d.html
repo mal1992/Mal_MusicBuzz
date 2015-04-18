@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+         #container{
+            width:900px;
+            height:900px;
+            margin:0 auto;
+            border:double;
+            background-color:rgba(0,0,0,0.6);
+            border-radius: 25px;
+        }
+         *{
+             
+             font-family:Aparajita;
+             font-size:large
+         }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1 style="color:white;">HTML Form </h1>
+        <form>
+            <table>
+                <tr>
+                    <td style="color:white;">
+                        Enter Your name
+                    </td>
+                    <td>
+                        <input type="text" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="color:white;">
+                        Enter  Your Date of Birth
+                    </td>
+                    <td>
+                        <input type="date" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="color:white;">
+                        Enter your email
+                    </td>
+                    <td>
+                        <input type="email" draggable="true" required />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="color:white;">
+                        Choose your Education Status
+                    </td>
+                    <td>
+                        <input list="edu">
+                        <datalist id="edu">
+                            <option value="Under Graduate">
+                            <option value="Graduate">
+                            <option value="Doctorate">
+                            <option value="PHd">
+                        </datalist>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" name="Submit the form" style="color:black">
+                    </td>
+                    <td></td>
+                </tr>
+
+            </table>
+        </form>
+        <h2>Documentation</h2>
+
+        This form consists of html elements which help in creation of form.
+        This form makes use of the following elements
+        <ul>
+            <li>Text input box where the user can enter his name </li>
+            <li>
+                A input area where he is prompted to enter his Date of birth
+            </li>
+            <li>
+                Email must be entered in the proper format otherwise an error will be thrown 
+                 I hav made the email as a required field so if you dont enter the email then the form will not be allowed to be submitted.
+            </li>
+            <li>An dropdown list where he can choose his level of education</li>
+            <li>Finally an Submit button which will allow the user to submit the form</li>
+        </ul>
+        
+        <h2 style="color:white;font-family:LilyUPC;font-size:xx-large">View Source</h2>
+        <a href="../../mal/fileview/default.aspx?~/Experiments\Experiment1d.html" target="_blank" style="color:white;font-family:LilyUPC;font-size:x-large">Source Code: HTML</a>
+        <h2 style="color:white;font-family:LilyUPC;font-size:xx-large">References</h2>
+        <a href="http://www.w3schools.com" style="color:white;font-family:LilyUPC;font-size:x-large">W3Schools</a>
+    </div>
+</body>
+</html>

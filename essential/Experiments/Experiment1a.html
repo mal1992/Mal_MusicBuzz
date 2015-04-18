@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        #container{
+            width:900px;
+            height:1400px;
+            margin:0 auto;
+            background-color:rgba(0,0,0,0.6);
+            border:double;
+            border-radius:25px;
+        }
+        *{
+            color:white
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h2>HTML5 Canvas</h2>
+        <p style="color:white;font-family:LilyUPC;font-size:x-large">You can see me appear inside the canvas with just a click of the button</p>
+        <img id="logo" src="../images/logo.png" alt="The Scream" />
+             
+        <br />
+        <h4 style="color:white;font-family:LilyUPC;font-size:xx-large">The Canvas </h4>
+       <canvas id="myCanvas" width="250" height="300"
+                style="border:2px solid #d3d3d3;">
+            Your browser does not support the HTML5 canvas tag.
+        </canvas>
+        <p style="color:white;font-family:LilyUPC;font-size:x-large">Click the button to see me appear inside the canvas :D</p>
+        <p><button onclick="myCanvas()" style="color:black">Move ME</button></p>
+
+        <script>
+            function myCanvas() {
+                var c = document.getElementById("myCanvas");
+                var ctx = c.getContext("2d");
+                var img = document.getElementById("logo");
+                ctx.drawImage(img, 10, 10);
+            }
+        </script>
+        <h2>Documentation</h2>
+        <p>
+            This is a HTML 5 canvas where you can manipulate images . Here on a click of a button we have moved the image from one position to a placeholder inside the canvas
+            this is doen using javascript document element and by getting the id of the canvas and then drawing the image back on the canvas
+        </p>
+
+        <h2 style="color:white;font-family:LilyUPC;font-size:xx-large">View Source</h2>
+        <a href="../../mal/fileview/default.aspx?~/Experiments\Experiment1b.html" target="_blank" style="color:white;font-family:LilyUPC;font-size:x-large">Source Code: HTML</a>
+        <h2 style="color:white;font-family:LilyUPC;font-size:xx-large">References</h2>
+        <a href="http://www.w3schools.com" style="color:white;font-family:LilyUPC;font-size:x-large">W3Schools</a>
+    </div>
+</body>
+</html>

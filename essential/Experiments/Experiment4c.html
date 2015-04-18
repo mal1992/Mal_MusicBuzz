@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script src="Exp4c.js"></script>
+    <link href="Exp4c.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div id="container">
+       
+            <div ng-app>
+                
+                    <h2>A TO-DO List </h2>
+                    <div ng-controller="TodoCtrl">
+                        <div id="notepad" style="background-color:black;width:300px;height:300px;margin:0 auto;border-radius:20px">
+                            <br />
+                            <span>{{remaining()}} of {{todos.length}} remaining</span>
+
+                            <ul class="unstyled">
+                                <li ng-repeat="todo in todos">
+                                    <input type="checkbox" ng-model="todo.done">
+                                    <span class="done-{{todo.done}}">{{todo.text}}</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <br />
+
+                        <form ng-submit="addTodo()" style="text-align:center">
+                            <input type="text" ng-model="todoText" size="30"
+                                   placeholder="Add a new item to the list">
+                            <button  type="submit" value="add">Click to add the item to the list</button>
+                        </form>
+                    </div>
+               
+
+        </div>
+        <hr />
+        <h2>DOCUMENTATION</h2>
+        <ul>
+            <li>When you add an task , it gets added to the To-do List and the number of tasks pending will increase on top</li>
+            <li>When you check one of the tasks, then you will notice the count in the pending tasks reduce</li>
+            <li>You can add as much items you want to the list and keep striking them out as its done.</li>
+            <li>
+                <pre>
+                                      $scope.remaining = function () {
+                                        var count = 0;
+                                         angular.forEach($scope.todos, function (todo) {
+                                         count += todo.done ? 0 : 1;
+                                          });
+                                         return count;
+    };
+                </pre> This is the procedure which will keep track of the pending tasks to be done
+            </li>
+        </ul>
+        <hr />
+        <h2 style="font-family:LilyUPC;font-size:xx-large">Source Code</h2>
+        <a href="../../mal/fileview/default.aspx?~/Experiments\Experiment4c.html" target="_blank" style="font-family:LilyUPC;font-size:x-large">Source Code: HTML</a>
+        <br />
+        <a href="../../mal/fileview/default.aspx?~/Experiments\Exp4c.js" target="_blank" style="font-family:LilyUPC;font-size:x-large">Source Code: JS</a>
+        <br />
+        <a href="../../mal/fileview/default.aspx?~/Experiments\Exp4c.css" target="_blank" style="font-family:LilyUPC;font-size:x-large">Source Code: JS</a>
+
+        <h2 style="font-family:LilyUPC;font-size:xx-large">References</h2>
+        <ul>
+            <li>
+                <a href="https://thinkster.io/a-better-way-to-learn-angularjs/" style="font-family:LilyUPC;font-size:x-large">thinkster-Angular Tutorial</a>
+            </li>
+            <li>
+                <a href="https://egghead.io/articles/new-to-angularjs-start-learning-here" style="font-family:LilyUPC;font-size:x-large">Egghead.io</a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

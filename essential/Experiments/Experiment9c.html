@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <title>Project Experiment 1</title>
+
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script src="http://w.soundcloud.com/player/api.js"></script>
+        <script>
+            $(document).ready(function () {
+                var widget = SC.Widget(document.getElementById('soundcloud_widget'));
+                widget.bind(SC.Widget.Events.READY, function () {
+                    console.log('Ready...');
+                });
+                $('button').click(function () {
+                    widget.toggle();
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="wrap" class="navbar navbar-inverse">
+            <div class="navbar-inner">
+                <h2>Project Experiment 1</h2>
+            </div>
+        </div>
+
+        <div class="container">
+            <h2>A Music Player</h2>
+            <iframe id="soundcloud_widget"
+                    src="http://w.soundcloud.com/player/?url=https://api.soundcloud.com/tracks/39804767&show_artwork=false&liking=false&sharing=false&auto_play=true"
+                    width="420"
+                    height="120"
+                    frameborder="0"></iframe>
+            <button>Play / Pause</button>
+
+
+            <hr />
+            <h2>DOCUMENTATION</h2>
+            <ul>
+                <li>
+                    This is only of the components of my project where the player will play the song the user has searched.
+
+                </li>
+
+                <li>I have not provided the source code since it includes my Keys</li>
+                  </ul>
+            <hr />
+           
+        </div>
+    </body>
+</html>

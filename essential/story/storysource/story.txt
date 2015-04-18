@@ -1,0 +1,13 @@
+﻿    File: storysource/story.txt
+    ... for access to the Story Utility source
+
+
+../../Experiments/Experiment2e.html            Tic-Tac-Toe Game
+../../Experiments/Experiment2f.html            Typing Game
+../../Experiments/Experiment2a.html            Responsive Page
+../../Experiments/Experiment2b.html            Fluid Video Design
+../../Experiments/Experiment2c.html            Responsive Table
+../../Experiments/Experiment2d.html            Responsive Grid
+
+
+

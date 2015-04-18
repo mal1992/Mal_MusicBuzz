@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+         body {
+            background-image: url("../images/background.jpg");
+        }
+         *{
+              font-family:cursive;
+           font-size:25px;
+         }
+        #container{
+            width:900px;
+            height:2000px;
+            margin:0 auto;
+            border:double;
+            background-color:#CC6699;
+            border-radius: 25px;
+            opacity: 0.6;
+        }
+        .vid-container { position: relative;
+                          padding-bottom: 60%; 
+                          padding-top: 30px;
+                           height: 0;
+                            overflow: hidden;
+                            border-radius: 25px; }
+      .vid-container iframe { position: absolute; 
+                              top: 0; 
+                              left: 0; 
+                              width: 100%;
+                               height: 100%; }
+        @media only screen and (max-width: 1100px) {
+            #container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+
+        <h1>Video with a Fluid Width</h1>
+
+        <div class="vid-container">
+            <iframe src="http://youtube.com/embed/m4cgLL8JaVI?rel=0" frameborder="0" ></iframe>
+        </div>
+
+        <h2>Documentation</h2>
+        <p>This experiment deals with a fluid video</p>
+        <p>The Video is placed inside a iFrame and the iFrame is placed within a "div".I have made both the div responsive as well as the iframe</p>
+        <p>This Resizing of the Video will not interrupt any semantics. If the video is playing and the user resizes the screen , then the
+        video wont face any disturbance.It will continue playing</p>
+        <h2>Code Snippet</h2>
+        <pre>
+                           .vid-container iframe
+                             { 
+                              position: absolute; 
+                              top: 0; 
+                              left: 0; 
+                              width: 100%;
+                              height: 100%; 
+                             }
+       </pre>
+        <p>
+            In the Code snippet we notice we have a div with class name = vid-container and an iframe.On resizing the positioning becomes absolute and
+            the fluid property is imparted. And since width =100% , it spans the entire conatiner it is present in.
+        </p>
+
+        <h2 style="color:white;font-family:LilyUPC;font-size:xx-large">Source Code</h2>
+        <a href="../../mal/fileview/default.aspx?~/Experiments\Experiment2b.html" target="_blank" style="color:white;font-family:LilyUPC;font-size:x-large">Source Code: HTML</a>
+        <h2 style="color:white;font-family:LilyUPC;font-size:xx-large">References</h2>
+        <ul>
+            <li>
+                <a href="http://webdesignerwall.com/tutorials/css-elastic-videos" style="color:white;font-family:LilyUPC;font-size:x-large">WebDesigner</a>
+            </li>
+            <li>
+                <a href="http://www.w3schools.com" style="color:white;font-family:LilyUPC;font-size:x-large">W3school</a>
+            </li>
+        </ul>
+
+    </div>
+</body>
+</html>

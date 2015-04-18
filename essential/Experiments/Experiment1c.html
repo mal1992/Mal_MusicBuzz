@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        
+ #container{
+            width:900px;
+            height:900px;
+            margin:0 auto;
+            border:double;
+            background-color:rgba(0,0,0,0.6);
+            border-radius: 25px;
+        }
+ 
+.base {
+    /*Basic background pictures details*/
+  border: 10px solid black;  
+  height: 300px;
+  width: 300px;
+  margin: 20px;
+  overflow: hidden;
+   
+  
+}
+        .rotate {
+            /*For all web browsers this should be considered so i added for all */
+  -webkit-transition: all 0.5s ease;
+     -moz-transition: all 0.5s ease;
+       -o-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+          transition: all 0.5s ease;
+}
+ 
+.rotate:hover {
+  border-radius: 50%;
+  /*As the border radius decreases on rotation it becomes a circle*/
+  -webkit-transform: rotate(360deg);
+     -moz-transform: rotate(360deg);
+       -o-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h2>CSS Animation</h2>
+    <p style="font-family:LilyUPC;font-size:xx-large">Hover on me and see me change shape</p>
+        <div class="rotate base">
+            <img src="../images/square.png" alt="beach">
+        </div>
+         <h5 style="font-family:LilyUPC;font-size:x-large" >Documentation</h5>
+         <p style="font-family:LilyUPC;font-size:x-large"> This Experiments allows us to play with CSS. Using CSS we have converted a square into a circle by 
+        decreasing the border radius and rotating the image by 360 degress</p>
+         <br />
+        <h2 style="color:white;font-family:LilyUPC;font-size:xx-large">Source Code</h2>
+        <a href="../../mal/fileview/default.aspx?~/Experiments\Experiment1c.html" target="_blank" style="color:white;font-family:LilyUPC;font-size:x-large">Source Code: HTML</a>
+        <h2 style="color:white;font-family:LilyUPC;font-size:xx-large">References</h2>
+    <ul >
+        <li>
+            <a href="http://webdesign.tutsplus.com/tutorials/a-beginners-introduction-to-css-animation--cms-21068" style="color:white;font-family:LilyUPC;font-size:x-large">WebDesign.net</a>
+        </li>
+        <li>
+            <a href="http://designshack.net" style="color:white;font-family:LilyUPC;font-size:x-large">DesignShack-animation</a>
+        </li>
+    </ul>
+        
+        </div>
+    
+</body>
+</html>

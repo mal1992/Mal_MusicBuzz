@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $.ajax({
+                type: "GET",
+                url: "http://api.walmartlabs.com/v1/feeds/preorder?apikey=t4dc3h4x3ba4d5y8qm7a48kc",
+                async: false,
+                dataType: "jsonp",
+                success: function (data) {
+                    alert("yay");
+                }
+            });
+        });
+    </script>
+
+
+    
+</head>
+<body>
+    <div class="experiment">
+        <h1 style="text-align:center">eBay Search Results using Ebay API</h1> <hr />
+        <div>
+
+        </div>
+        <br> <hr />
+
+        <div id="results">
+        </div>
+       
+    </div>
+    <br />
+
+
+</body>
+</html>

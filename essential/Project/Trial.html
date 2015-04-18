@@ -1,0 +1,140 @@
+﻿
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1">
+    <link rel="shortcut icon" href="icon.ico" />
+    <title>Movie API</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+    <script type="text/javascript">
+
+        $(function () {
+            var param = {
+                apikey: "db7f70f153f0903a643dc19de9cb4ae8"
+            };
+            $.ajax({
+                url: "http://api.musixmatch.com/ws/1.1/track.search?q_track=back%20to%20december&q_artist=taylor%20swift&f_has_lyrics=1",
+                data: param,
+                dataType: "jsonp",
+                success: function (response) {
+                    
+                }
+
+            });
+
+            $(".details").click(display);
+        });
+        function display() {
+            var text = $(".titleofmovie").val();
+            var param = {
+                apikey: "db7f70f153f0903a643dc19de9cb4ae8",
+                q: text,
+                page_limit: "10"
+            };
+            $.ajax({
+                url: "http://api.musixmatch.com/ws/1.1/track.search?q_track=back%20to%20december&q_artist=taylor%20swift&f_has_lyrics=1",
+                data: param,
+                dataType: "jsonp",
+                success: function (response) {
+                   
+                    }
+                
+                
+            });
+        }
+
+
+    </script>
+
+
+
+
+
+
+
+    <link href="Exp5a.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="container">
+        <h2>MOVIE DATABASE</h2>
+        <h5>This Page will allow you to receive movie details based on the user input</h5>
+
+        <div id="center" style="margin:0 auto;text-align:center">
+            <p>Enter any movie's name</p>
+            <br />
+            <input type="text" class="titleofmovie" />
+            <br />
+            <br />
+            <input type="button" class="details" value="Click me" style="color:black" />
+
+        </div>
+        <ul class="tableforrecord" style="list-style-type:none"></ul>
+        <div class="listofmovies" style="visibility:hidden;list-style-type:none">
+            <ul class="Movies" style="list-style-type:none">
+                <li>
+                    <table>
+                        <tr>
+                            <td style="color:red">Movie Name</td>
+                            <td><span class="title"></span><br /></td>
+                        </tr>
+                        <tr>
+                            <td style="color:green">Movie Year of Release</td>
+                            <td><span class="year">2000</span><br /></td>
+                        </tr>
+
+                        <tr>
+                            <td style="color:purple">Duration of the movie</td>
+                            <td><span class="duration">60</span><br /></td>
+                        </tr>
+
+                        <tr>
+                            <td><hr /></td>
+                        </tr>
+                    </table>
+
+
+
+                </li>
+            </ul>
+        </div>
+
+
+
+
+        <hr />
+        <h2>DOCUMENTATION</h2>
+        <ul>
+            <li>
+                This is a simple Movie details retreival using an API.
+            </li>
+            <li>
+                I have used ajax calls to get the data and i have a registered api key specific for me which I have used to retrieve the movies data
+            </li>
+            <li>
+                I have adjusted the number of results to be displayed.Maximum of 10 results  will be displayed.
+            </li>
+        </ul>
+        <hr />
+        <h2 style="font-family:LilyUPC;font-size:xx-large">Source Code</h2>
+        <a href="../../mal/fileview/default.aspx?~/Experiments\Experiment5a.html" target="_blank" style="font-family:LilyUPC;font-size:x-large">Source Code: HTML</a>
+        <br />
+        <a href="../../mal/fileview/default.aspx?~/Experiments\Exp5a.js" target="_blank" style="font-family:LilyUPC;font-size:x-large">Source Code: JS</a>
+        <br />
+        <a href="../../mal/fileview/default.aspx?~/Experiments\Exp5a.css" target="_blank" style="font-family:LilyUPC;font-size:x-large">Source Code: JS</a>
+
+        <h2 style="font-family:LilyUPC;font-size:xx-large">References</h2>
+        <ul>
+            <li>
+                <a href="http://www.restapitutorial.com/?utm_expid=59305729-0._AkKuacFSlaUc_EB2EKW5w.0&utm_referrer=http%3A%2F%2Fwww.google.com%2Furl%3Fsa%3Dt%26rct%3Dj%26q%3D%26esrc%3Ds%26source%3Dweb%26cd%3D2%26ved%3D0CCkQFjAB%26url%3Dhttp%253A%252F%252Fwww.restapitutorial.com%252F%26ei%3DZdjnVIzZEqOxsAS4xYGYBw%26usg%3DAFQjCNFbGLRZCBqnTgR87kIdacyoAQ9RIw%26bvm%3Dbv.86475890%2Cd.cWc" style="font-family:LilyUPC;font-size:x-large">How to learn REST</a>
+            </li>
+            <li>
+                <a href="http://developer.rottentomatoes.com/docs/read/json/v10/examples" style="font-family:LilyUPC;font-size:x-large">How to use this particular API</a>
+            </li>
+        </ul>
+    </div>
+
+
+</body>
+</html>

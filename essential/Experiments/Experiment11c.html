@@ -1,0 +1,33 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>Lastest Events in boston</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+    <h2>Latest Music Events Happening at Boston</h2>
+    <script>
+        $(document).ready(function () {
+            $.getJSON("http://ws.audioscrobbler.com/2.0/?method=geo.getevents&location=boston&api_key=1bc8721107d980dbbf6357927816c966&format=json&callback=?", function (json) {
+                var html = '';
+                $.each(json.events.event, function (i, item) {
+                    html += "<p><a href=" + item.url + " target='_blank'>" + item.title + " - " + "Venue Name : " + item.venue.name + "</a><p>" + item.artists.artist +"</p></p>";
+                    console.log(item.image);
+                });
+                $('#result').append(html);
+            });
+        });
+    </script>
+
+
+    <div id="result"></div>
+
+    <h2>DOCUMENTATION</h2>
+    <ul>
+        <li>This is one of my experiments to display top music events happening in a particular location</li>
+        <li>The events are updated every few hours</li>
+        <li>This is an experiment pertaining to my project- This portion comes in my HomePage</li>
+    </ul>
+
+</body>
+</html>

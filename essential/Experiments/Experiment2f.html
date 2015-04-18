@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        * {
+            font-family: cursive;
+            font-size: 25px;
+            color: grey;
+        }
+
+        body {
+            background-image: url("../images/background.jpg");
+        }
+       
+
+
+        #container {
+            width: 900px;
+            height: 1700px;
+            margin: 0 auto;
+            border: double;
+            background-color: white;
+            border-radius: 25px;
+            opacity: 0.4;
+            /*For IE : this is required !!! */
+            filter: alpha(opacity=60);
+        }
+        @media only screen and (max-width: 1100px) {
+
+            #entry{
+                width: 320px;
+                height: 100px;
+            }
+            *{
+                 
+                font-size:15px;
+            }
+            #container {
+                width: 90%;
+            }
+            
+            #movetable{
+                width: 90%;
+            }
+            textarea,form{
+                width: 90%;
+            }
+        }
+      
+         
+    </style>
+    <link rel="stylesheet" type="text/css" />
+
+    <script src="Exp2f.js"></script>
+
+</head>
+<body>
+    <div id="container">
+
+        <h2 style="text-align:center;color:red">SEE HOW FAST YOU CAN TYPE !  </h2>
+
+        <h5>click "Click to find Phrase" to get your Phrase to type and show your skill in the textarea which is given below the phrase</h5>
+
+        <div style="border:solid 3px black;border-radius:9px;border-image-slice:fill">
+            <center>
+                <form name="theForm">
+                    <table id="movetable" cellspacing=0 cellpadding=0>
+                        <tr>
+                            <td style="color:red">Choose the level you want to be graded with !</td>
+                            <td align=center style="color:red">
+                                <input style="color:red" type=radio name="sme" value="Beginner" onclick="beginner()" checked>Beginner
+                                <input style="color:red" type=radio name="sme" value="Novice" onclick="medium()">Novice
+                                <input style="color:red" type=radio name="sme" value="Expert" onclick="expert()">Expert
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan=2>
+                                <br>
+                                <center><input type=button style="border-radius:8px;color:red" value="Click to Get Phrase" name="start" onclick="beginIt()"></center><p>
+                                    <textarea name="given" cols=53 rows=3 wrap="hard" onfocus="copy()"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan=2>
+
+                                <input id="entry" type=text name="typed" size=45>
+
+
+                            </td>
+                        </tr>
+                    </table>
+                    <br />
+                    <input type=button style="border-radius:8px;color:red" value="Submit to check" name="stop" onclick="Checktyped()">
+                </form>
+            </center>
+        </div>
+        <h2>DOCUMENTATION</h2>
+        <p>This Game uses basic javascript elements like "calling the function" , basic math functions</p>
+        <ol style="color:orangered">
+            <li style="color:orangered">
+                First I have saved different Phrases for each level, so based on the level you choose , the apt sentence will be displayed
+            </li>
+            <li style="color:orangered">
+                You can start typing in the input box and once you submit it will calculate the time you have taken to type out fully
+            </li>
+            <li style="color:orangered">
+                The time is calculated based on the time you have focused on the input box and time you take to click the submit button !
+            </li>
+            <li style="color:orangered">
+                The best Part about this game is that you cannot copy and paste the phrase :D so it gets really fun !!
+            </li>
+            
+        </ol>
+       
+
+        <h2 style="font-family:LilyUPC;font-size:xx-large">Source Code</h2>
+        <ul>
+            <li>
+                <a href="../../mal/fileview/default.aspx?~/Experiments\Experiment2f.html" target="_blank" style="font-family:LilyUPC;font-size:x-large">Source Code: HTML</a>
+            </li>
+            <li>
+
+                <a href="../../mal/fileview/default.aspx?~/Experiments\Exp2f.js" target="_blank" style="font-family:LilyUPC;font-size:x-large">JavaScript Source Code</a>
+            </li>
+        </ul>
+      
+        <h2 style="font-family:LilyUPC;font-size:xx-large">References</h2>
+        <ul>
+            <li>
+                <a href="http://www.w3schools.com" style="font-family:LilyUPC;font-size:x-large">W3school</a>
+            </li>
+            <li>
+                <a href="http://www.tutorialspoint.com/javascript/" style="font-family:LilyUPC;font-size:x-large">TutorialPoint</a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

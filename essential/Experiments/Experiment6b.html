@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Bootstrap elements </title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <h2>A simple bootstrap collapsible element</h2>
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Button with badges</a>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        <h2>Badges on Buttons</h2>
+                        <button type="button" class="btn btn-primary">Primary <span class="badge">7</span></button>
+                        <button type="button" class="btn btn-success">Success <span class="badge">3</span></button>
+                        <button type="button" class="btn btn-danger">Danger <span class="badge">5</span></button>
+ </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Progress Bars</a>
+                    </h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>The contextual classes colors the progress bars:</p>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+                                40% Complete (success)
+                            </div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+                                50% Complete (info)
+                            </div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:60%">
+                                60% Complete (warning)
+                            </div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+                                70% Complete (danger)
+                            </div>
+                        </div>  </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Same Group Buttons</a>
+                    </h4>
+                </div>
+                <div id="collapse3" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary">Small</button>
+                            <button type="button" class="btn btn-primary">Medium</button>
+                            <button type="button" class="btn btn-primary">Large</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+      
+    <hr />
+    <h2>DOCUMENTATION</h2>
+    <ul>
+        <li>I have added a accordian within which every block will contain smaller bootstrap elements that i am going to include</li>
+        <li>I have made use of badges for buttons which i will be using in my project </li>
+        <li>Use of Progress bar is made .This can be used to track quantity in a user friendly way.</li>
+        <li>Used bootstrap buttons to resolve the responsive property.</li>
+    </ul>
+    <hr />
+    <h2 style="font-family:LilyUPC;font-size:xx-large">Source Code</h2>
+    <a href="../../mal/fileview/default.aspx?~/Experiments\Experiment6b.html" target="_blank" style="font-family:LilyUPC;font-size:x-large">Source Code: HTML</a>
+    <br />
+
+    <h2 style="font-family:LilyUPC;font-size:xx-large">References</h2>
+    <ul>
+        <li>
+            <a href="https://www.nuget.org/packages/bootstrap/3.3.1" style="font-family:LilyUPC;font-size:x-large">Intro to bootstrap</a>
+        </li>
+        <li>
+            <a href="http://getbootstrap.com/getting-started/" style="font-family:LilyUPC;font-size:x-large">Getting started with bootstrap</a>
+        </li>
+    </ul>
+</body>
+</html>

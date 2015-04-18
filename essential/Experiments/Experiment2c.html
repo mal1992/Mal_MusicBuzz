@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>*{
+    font-family:cursive;
+           font-size:25px;
+}
+         
+         body {
+            background-image: url("../images/background.jpg");
+        }
+          #container{
+            width:900px;
+            height:1500px;
+            margin:0 auto;
+            border:double;
+            opacity: 0.6;
+            background-color:#CC6699;
+            border-radius: 25px;
+        }
+
+
+          table { 
+              border-radius:25px;
+  width: 100%; 
+  border-collapse: collapse; 
+}
+/* Zebra striping */
+tr:nth-of-type(odd) { 
+  background: #eee; 
+}
+th { 
+    
+  background: #110432; 
+  color: white; 
+  font-weight: bold; 
+}
+td, th { 
+   
+  padding: 6px; 
+  border: 1px solid #ccc; 
+  text-align: left; 
+}
+
+        @media only screen and (max-width: 1100px) {
+            #container{
+                width:90%;
+            }
+
+            /*When we have to change the table orientation*/
+            div,table, thead, tbody, th, td, tr {
+                display: block;
+                border-radius:25px;
+            }
+
+                /*removing the headers : this will help*/
+                thead tr {
+                    /*absolute will place it exactly as the data starts*/
+                    position: absolute;
+                    top: -9999px;
+                    left: -9999px;
+                }
+
+            tr {
+                border: 1px solid #ccc;
+            }
+
+            td {
+                /*for a row*/
+                border: none;padding-left: 50%;
+                border-bottom: 1px solid #eee;
+                position: relative;
+                
+            }
+
+                td:before {
+                     width: 45%;
+                    position: absolute;
+                    
+                    top: 6px;
+                    left: 6px;
+                   
+                    padding-right: 10px;
+                    white-space: nowrap;
+                }
+
+              /*For the name*/
+                td:nth-of-type(1):before {
+                    content: "Dog Name";
+                }
+
+                td:nth-of-type(2):before {
+                    content: "Owner's Name";
+                }
+
+                td:nth-of-type(3):before {
+                    content: "Chip ID ";
+                }
+
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+
+        <h1>Responsive Tables</h1>
+        <p> I have demonstarted responsive tables where the table is resized as the screen changes size</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Dog Name</th>
+                    <th>Owner's Name</th>
+                    <th>Chip ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Oreo</td>
+                    <td>Ruchika Reddy</td>
+                    <td>DF5687</td>
+                </tr>
+                <tr>
+                    <td>Leo</td>
+                    <td>Harikumardev</td>
+                    <td>NH444 </td>
+                </tr>
+                <tr>
+                    <td>Rocky</td>
+                    <td>Chinnayan</td>
+                    <td>ER890 </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Documentation</h2>
+        <ol>
+            <li>In this experiment we see how a table can be made responsive without any loss of data in the table</li>
+            <li>The data is made to display one below the other to accomodate all the columns in a smaller screen</li>
+            <li>This responsiveness will help in better display in smaller devices!</li>
+        </ol>
+
+       <h2>
+           Code Snippet
+       </h2>
+        <pre>
+                div,table, thead, tbody, th, td, tr
+             {
+                display: block;
+                border-radius:25px;
+              }
+       </pre>
+        <p>When you make the display as block , then the table orientation is removed and it changes to become like a normal display</p>
+        
+   
+        <h2 style="color:white;font-family:LilyUPC;font-size:xx-large">Source Code</h2>
+        <a href="../../mal/fileview/default.aspx?~/Experiments\Experiment2c.html" target="_blank" style="color:white;font-family:LilyUPC;font-size:x-large">Source Code: HTML</a>
+        <h2 style="color:white;font-family:LilyUPC;font-size:xx-large">References</h2>
+        <ul>
+            <li>
+                <a href="http://css-tricks.com/responsive-data-tables/" style="color:white;font-family:LilyUPC;font-size:x-large">CSS Tricks</a>
+            </li>
+            <li>
+                <a href="http://elvery.net/demo/responsive-tables/" style="color:white;font-family:LilyUPC;font-size:x-large">Elvery Blog</a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+﻿
+         *{
+           font-family: cursive;
+           color:white;
+       }
+          body {
+    background-image: url("../images/patterned_pale_orange_background.jpg");
+    }
+       
+h1{ font-size:1.2em; }
+form{ padding:20px 0 20px; }
+#url{ width:400px; }
+input{ font-size:1.2em; vertical-align:middle; }
+    #container {
+    width: 900px;
+    height: 1700px;
+    margin: 0 auto;
+    border: double;
+    background-color: black;
+    border-radius: 25px;
+    opacity: 0.5;
+    /*For IE : this is required !!! */
+    filter: alpha(opacity=60);
+    }
+
+   
+     @media only screen and (max-width: 1100px) {
+
+
+           * {
+               font-size: 15px;
+           }
+
+           #container {
+               width: 90%;
+           }
+       }
+ 

@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>SVG</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>SVG Animation</h1>
+            <h2>SVG Techniques as taught in class to be used</h2>
+        </div>
+
+        <h2>SVG Animation</h2>
+        <div class="container" style="height:280px">
+
+            <svg width="500" height="500">
+                <rect x="10" y="10" width="40" height="20"
+                      style="stroke: #000000; fill: none;">
+                    <animateTransform attributeName="transform" attributeType="XML"
+                                      type="scale"
+                                      from="1" to="3"
+                                      begin="0s" dur="10s"
+                                      repeatCount="indefinite"
+                                      additive="sum" />
+                    <animateTransform attributeName="transform" attributeType="XML"
+                                      type="rotate"
+                                      from="0 30 20" to="360 30 20"
+                                      begin="0s" dur="10s"
+                                      fill="freeze"
+                                      repeatCount="indefinite"
+                                      additive="sum" />
+                </rect>
+
+            </svg>
+        </div>
+
+        <h2>SVG Fill Patterns</h2>
+        <div class="container">
+            <svg>
+                <defs>
+                    <pattern id="innerPattern"
+                             x="3" y="3" width="9" height="9"
+                             patternUnits="userSpaceOnUse">
+                        <rect x="0" y="0" width="6" height="6"
+                              style="stroke: none; fill: #ff0000;" />
+
+                    </pattern>
+
+                    <pattern id="outerPattern"
+                             x="12" y="12" width="25" height="25"
+                             patternUnits="userSpaceOnUse">
+
+                        <circle cx="10" cy="10" r="10"
+                                style="stroke: #0000ff; fill: url(#innerPattern)" />
+
+                    </pattern>
+                </defs>
+
+                <rect x="10" y="10" width="100" height="100"
+                      style="stroke: #000000; fill: url(#outerPattern);" />
+            </svg>
+        </div>
+
+        <h2>SVG Filters</h2>
+        <div class="container">
+            <svg>
+                <defs>
+                    <filter id="blurFilter4" x="-20" y="-20" width="200" height="200">
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="10" />
+                    </filter>
+                </defs>
+                <rect x="20" y="20" width="90" height="90"
+                      style="stroke: none; fill: #00ff00; filter: url(#blurFilter4);" />
+            </svg>
+        </div>
+        <hr />
+        <h2>DOCUMENTATION</h2>
+        <ul>
+         <li>Scalable Vector Graphics  was taught in class, Prof showed us basic SVG image techniques.I thought I could analyse further and came up good animation</li>
+            <li>SVG can be used along with CSS to provide scalability to images and animation can be taken to the next level.</li
+<li>Check out the source code on how the animations and effects were implemented using SVG</li>>
+        </ul>
+        <hr />
+        <h2 style="font-family:LilyUPC;font-size:xx-large">Source Code</h2>
+        <a href="../../mal/fileview/default.aspx?~/Experiments\Experiment8c.html" target="_blank" style="font-family:LilyUPC;font-size:x-large">Source Code: HTML</a>
+        <br />
+
+        <h2 style="font-family:LilyUPC;font-size:xx-large">References</h2>
+        <ul>
+            <li>
+                <a href="http://www.jqueryrain.com/example/svg-tutorial/" style="font-family:LilyUPC;font-size:x-large">Intro to SVG</a>
+            </li>
+            <li>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/SVG_animation_with_SMIL" style="font-family:LilyUPC;font-size:x-large">SVG Tutorials</a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

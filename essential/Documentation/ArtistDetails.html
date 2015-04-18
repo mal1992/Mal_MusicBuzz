@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Artist Details</title>
+    <style>
+        body {
+            background-color: black;
+            font-family: "Lucida Grande", sans-serif;
+        }
+
+        #container {
+            width: 900px;
+            height: 1400px;
+            margin: 0 auto;
+            border: 20px thick;
+            border-color: green;
+            background-color: white;
+            border-radius: 25px;
+        }
+
+        h2 {
+            color: black;
+        }
+
+        #borderd {
+            margin: 30px;
+            padding: 20px;
+            background: #fff;
+            border: solid 3px black;
+        }
+
+        @media only screen and (max-width: 1100px) {
+            #container {
+                width: 90%;
+            }
+
+            * {
+                color: black;
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <br />
+        <div id="borderd">
+            <br />
+            <h1 style="text-align:center">Artist-pedia</h1>
+            <hr />
+            <h5>COMPONENTS IN THIS PAGE</h5>
+            <p>
+                <ul>
+                    <li>
+                        Navigation bar to move around the Website
+                    </li>
+                    <li>
+                        Search Bar and Button
+                    </li>
+                    <li> Details of the Artist entered - From Wikipedia</li>
+                    <li> Images of the artist</li>
+                    <li> Videos of the artist - on click user will directed to the parent page containing website</li>
+                    <li> Link to the artist Official Website</li>
+                    <li> Link to related Pages of the Artist</li>
+                    <li> Details related to the Artist</li>
+                    <li> Related Artists based on the genre are also displayed </li>
+                    <li> Footer - will navigate to HomePage</li>
+                </ul>
+            </p>
+            <h5>OUTLINE</h5>
+            <p>
+                Navigation bar to help users get around the website
+            </p>
+            <p>
+                There is a search bar which will allow users to enter artist name and search for their details
+            </p>
+            <p>
+                There is an image followed by some information about the artist from wikipedia.
+                Most Specific details are only fetched from wikipedia.
+            </p>
+            <p>
+                There is an set of images of the artist that you can traverse through using the buttons.The images are
+                randomly picked from websites which the API has reference to.
+            </p>
+            <p>
+                There is an set of videos of the artist that you can traverse through using the buttons.The videos are
+                randomly picked from websites which the API has reference to.When you click on the play button , it will take you to
+                the website where the video is hosted and will be played from there.
+            </p>
+            <p>
+                There is table where basic details of the artist as in when the artist began his career is present.
+                Along with that in that table i have given links to that artists WikiPedia Page , His Official Page and his Twiiter Page.
+
+            </p>
+            <p>
+                There is a Table which will talk about how many albums he has sung and released.
+            </p>
+            <p>
+                Below is a section which will tell about the artist who are similar to that particular artist.It is chosen 
+                based on the genre they have sung in.
+            </p>
+            <p>
+                The next section will give details about the Genre what the artist has sung.It will give a list of genre that the artist has sung.
+            </p>
+
+            <h5>API USED</h5>
+            <p>EchoNest API , Last.fm API , WikiPedia API are the API's that has been used in this Page.</p>
+            <p>The api call is made in the form specified below</p>
+            <pre style="color:palevioletred">
+             http://developer.echonest.com/*api_key*/v4/dynamic/create/artist_name=""
+            </pre>
+            <p>Wikipedia comes from MediaWiki API and is of the form</p>
+            <pre style="color:palevioletred">
+                 http://en.wikipedia.org/w/api.php
+</pre>
+            <p>Data Rereival using this API was a challenging task as compared to the others</p>
+            <p> I tried implementing Rdio API through Echonest Account of mine which did not allow enough access , Any developer wanting to use the latest prototype had to apply for the Code - due to which error was being thrown</p>
+        
+        </div>
+    </div>
+</body>
+</html>

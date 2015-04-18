@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="http://code.jquery.com/jquery-1.9.1.js" language="javascript" type="text/javascript"></script>
+
+    <script src="exp3a.js" language="javascript" type="text/javascript"></script>
+    
+    
+    <style>
+         * {
+            font-family: cursive;
+            
+            color:beige;
+        }
+         body {
+            background-image: url("../images/bg1.jpg");
+        }
+       
+
+
+        #container {
+            width: 900px;
+            height: 1700px;
+            margin: 0 auto;
+            border: double;
+            background-color: black;
+            border-radius: 25px;
+            opacity: 0.5;
+            /*For IE : this is required !!! */
+            filter: alpha(opacity=60);
+        }
+   
+
+.board{
+    text-align:center;
+	padding:6px;
+	display:inline-block;
+	background-color:#fff;
+	width:200px;
+	height:200px;
+	border:1px black solid;
+	border: 1px solid rgb(204, 204, 204);
+	border-radius: 3px 3px 3px 3px;
+	box-shadow: 0px 1px 3px rgb(167, 167, 167); 
+}
+
+
+.shape{
+	border:2px #fff solid; 
+	background: rgb(240, 240, 240);
+	margin:0px;
+	padding:0px;
+	display:inline-block;
+	box-shadow: 2px 2px 2px rgb(136, 136, 136); 
+	margin:2px;
+}
+
+.shape:hover{
+	cursor:pointer;
+}
+.selected{
+	background-color:#4D90FE;
+	
+}
+.wrong{
+	background-color:red;
+	
+}
+
+
+.placeholder{
+    text-align:center;
+}
+  @media only screen and (max-width: 1100px) {
+
+           
+            *{
+                 
+                font-size:15px;
+            }
+            #container {
+                width: 90%;
+            }
+            
+           
+        }
+    </style>
+
+</head>
+<body>
+    <div id="container">
+        <h2>Memory Cracker</h2>
+        <h3>Try to remember which Squares are being highlighted</h3>
+        <p>Now try to remember which squares were highlighted and select the correct circle.If you got the answer correct you will be directed to the next level</p>
+
+        <div id="center" style="text-align:center">
+            <div class="board">
+                <div class="placeholder"></div>
+            </div>
+        </div>
+        <p>I have made the container as responsive with respect to the game board's size.</p>
+        <hr />
+        <h2>Documenation</h2>
+        <p>This is a simple memory game using Jquery</p>
+        <ul>
+            <li>The game board is designed using the div tag and elements are placed inside that div</li>
+            <li>The blue squares are displayed for few seconds and they disappear.
+            <pre>
+                                function hideSquare() {
+                                  $(".placeholder > .shape").removeClass("selected");
+                                    initialvalue = true;
+                                     TableValue = true;
+                                    }
+                              //based on the 2 class "placeholder" and "board" within which the square are placed we remove 
+                                the class sttribute we had set previously set before "selected".When the user clicks the 
+                                square then the square will have "selected" class attribute assigned to it again.
+            </pre>
+            </li>
+            <li>The Game complexity keeps increasing dynamically,as the user wins the game.The number of rows and columns keeps increasing as you keep playing
+            <pre>
+                    if ($(".wrong").length == 0) {
+                    alert("You Cleared this level ! :D Lets try how good you are at the next level ! ");
+                    if (column == row)
+                        column++;
+                    else if (column > row)
+                        row++;
+                    if (column > 6) {
+                        column = 6;
+                        row = 6;
+
+                    If  a user has cleared a level then the previous rows and columns value will be checked and based on that the new level will be generated.
+            </pre>
+            
+            </li>
+            <li>When you click on a wrong square then it will be depicted in red color which will tell that the game ends.The squares are drawn using Jquery.</li>
+          
+            <li>
+                Using Jquery we check for the winning streak, if all the squares are selected correct or if the user
+                clicks on the wrong position.
+            </li>
+        </ul>
+        <hr />
+        <h2 style="font-family:LilyUPC;font-size:xx-large">Source Code</h2>
+        <a href="../../mal/fileview/default.aspx?~/Experiments\Experiment3a.html" target="_blank" style="font-family:LilyUPC;font-size:x-large">Source Code: HTML</a>
+        <br />
+        <a href="../../mal/fileview/default.aspx?~/Experiments\Exp3a.js" target="_blank" style="font-family:LilyUPC;font-size:x-large">Source Code: JS</a>
+
+         <h2 style="font-family:LilyUPC;font-size:xx-large">References</h2>
+        <ul>
+            <li>
+                <a href="http://www.codecademy.com/en/tracks/jquery" style="font-family:LilyUPC;font-size:x-large">Code Academy</a>
+            </li>
+            <li>
+                <a href="http://www.1stwebdesigner.com/jquery-animation-tutorial/ style=" font-family:lilyupc;font-size:x-large">1stWebDesigner</a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

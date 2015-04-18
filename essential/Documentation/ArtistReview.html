@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Artist Reviews</title>
+    <style>
+        body {
+            background-color: black;
+            font-family: "Lucida Grande", sans-serif;
+        }
+
+        #container {
+            width: 900px;
+            height: 1400px;
+            margin: 0 auto;
+            border: 20px thick;
+            border-color: green;
+            background-color: white;
+            border-radius: 25px;
+        }
+
+        h2 {
+            color: black;
+        }
+
+        #borderd {
+            margin: 30px;
+            padding: 20px;
+            background: #fff;
+            border: solid 3px black;
+        }
+
+        @media only screen and (max-width: 1100px) {
+            #container {
+                width: 90%;
+            }
+
+            * {
+                color: black;
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <br />
+        <div id="borderd">
+            <br />
+            <h1 style="text-align:center">Artist Reviews</h1>
+            <hr />
+            <h5>COMPONENTS IN THIS PAGE</h5>
+            <p>
+                <ul>
+                    <li>
+                        Navigation bar to move around the Website
+                    </li>
+                    <li>
+                        Search Bar and Button
+                    </li>
+                    <li> Review of the Artist entered</li>
+                    <li>Footer - will navigate to HomePage</li>
+                </ul>
+            </p>
+            <h5>OUTLINE</h5>
+            <p>
+                On Entering any artist name, the latest top 20 reviews related to that Particular artist will be displayed.
+                Only a Portion of the review will be displayed.A link will be provided so that the user can navigate to the parent
+                page and read the complete review.
+
+
+            </p>
+            <p>
+                The review based on the artist is retreived by the API and the corresponding details from the
+                response alone is displayed.
+            </p>
+            <p> The link where the complete review is posted is also displayed</p>
+
+            <pre style="color:palevioletred">
+              var div = $(" &lt; div class='well clearfix'>");
+             var source = getSource(item.url);
+             if (blackList.indexOf(source) != -1) {
+                 return null;
+             }
+             div.append($("&lt; h4 style='color:orange'>").html(item.name));
+             
+             var date = null;
+             if ('date_posted' in item) {
+                 date = item.date_posted;
+             } else if ('date_found' in item) {
+                 date = item.date_found;
+             }
+             if (date) {
+                 date = "<i>" + date.substring(0, 10) + '</i> ';
+             }
+             div.append($("&lt; p>").html(date + item.summary + " ..."));
+             var link = $("&lt; a>");
+             link.attr('href', item.url);
+             link.text("full review on " + source);
+             div.append(link)
+            </pre>
+            <h5>API INFORMATION</h5>
+            <p>
+                This Page uses Echonest API, which will get collect the latest review from different sources and provides the 
+
+            </p>
+            <p>The url we will be using is</p>
+            <pre style="color:palevioletred">
+             simpleproxy.aspx?url=|http://developer.echonest.com/user/api_key.json|
+</pre>
+            <p>The API KEY would be passed to the url from which we will access the data</p>
+
+
+
+
+        </div>
+    </div>
+</body>
+</html>

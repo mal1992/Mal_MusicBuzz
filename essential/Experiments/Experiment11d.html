@@ -1,0 +1,38 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>Lyrics Retreival </title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+    <h2>Get Lyrics for a particular song</h2>
+    <script>
+        $(document).ready(function () {
+            $.getJSON("http://api.musixmatch.com/ws/1.1/track.lyrics.get?&apikey=db7f70f153f0903a643dc19de9cb4ae8&track_id=15953433&format=jsonp&callback=?", function (json) {
+                var html = '';
+                $.each(json, function (i, item) {
+
+                    html += "<p> TRACK ID :" + json.message.body.lyrics.lyrics_id + "  " + "<br/> LYRICS : " + json.message.body.lyrics.lyrics_body + "</a></p>";
+
+                    console.log(json.message.body.lyrics.lyrics_id);
+                });
+                
+                $('#result').append(html);
+            });
+        });
+    </script>
+
+
+    <div id="result"></div>
+
+   <h2>
+       DOCUMENTATION
+   </h2>
+    <ul>
+        <li>I used one of the API to retrieve Lyrics for my project</li>
+        <li> This API provided only 30% of the lyrics while i was looking to display 100% so i will go ahead and try with 
+        the other API's</li>
+    </ul>
+
+</body>
+</html>

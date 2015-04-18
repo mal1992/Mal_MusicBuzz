@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head >
+    <title>Dialog Modal From</title>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+
+    <link href="Exp7d.css" rel="stylesheet" media="all" />
+
+    <script src="Exp7d.js"></script>
+
+
+</head>
+
+
+<body>
+    <div id="container">
+        <div class="Top">
+
+            <h2>A simple Modal Experiemnt for adding new users</h2>
+
+
+
+        </div>
+        <div>
+
+
+            <div>
+
+                <div id="dialog-form" title="Create a new user">
+                    <p class="validateTips">Make sure all fields are filled.</p>
+
+                    <form>
+                        <fieldset>
+                            <label for="name">User name</label>
+                            <input type="text" name="name" id="name" value="" class="text ui-widget-content ui-corner-all">
+                            <label for="email">Email Id</label>
+                            <input type="text" name="email" id="email" value="" class="text ui-widget-content ui-corner-all">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" id="password" value="" class="text ui-widget-content ui-corner-all">
+
+
+                            <input type="submit" tabindex="-1" style="position: absolute; top: -1000px">
+                        </fieldset>
+                    </form>
+                </div>
+
+
+                <div id="users-contain" class="ui-widget">
+                    <h1>Existing Users:</h1>
+                    <table id="users" class="ui-widget ui-widget-content">
+                        <thead>
+                            <tr class="ui-widget-header ">
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Password</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <button id="create-user">Create new user</button>
+
+            </div>
+
+
+
+
+        </div>
+
+
+
+
+        <hr />
+        <h2>DOCUMENTATION</h2>
+        <ul style="font-size:large">
+            <li>
+                This is a login UI which will be used in the Project , this UI will be connected to the database to store the login details
+            </li>
+            <li>
+                This is a Jquery UI custom based New user creation Page.
+            </li>
+            <li>
+                Basic Validations are also done in this Page
+            </li>
+        </ul>
+        <hr />
+        <h2 style="font-family:LilyUPC;font-size:xx-large">Source Code</h2>
+        <a href="../../mal/fileview/default.aspx?~/Experiments\Experiment7d.html" target="_blank" style="font-family:LilyUPC;font-size:x-large">Source Code: HTML</a>
+        <a href="../../mal/fileview/default.aspx?~/Experiments\Exp7d.js" target="_blank" style="font-family:LilyUPC;font-size:x-large">Source Code: JS</a>
+        <a href="../../mal/fileview/default.aspx?~/Experiments\Exp7d.css" target="_blank" style="font-family:LilyUPC;font-size:x-large">Source Code: CSS</a>
+
+        <br />
+
+        <h2 style="font-family:LilyUPC;font-size:xx-large">References</h2>
+        <ul>
+            <li>
+                <a href="http://www.sitepoint.com/javascript/jquery/" style="font-family:LilyUPC;font-size:x-large">Jquery Tutorial</a>
+            </li>
+            <li>
+                <a href="http://jqueryui.com" style="font-family:LilyUPC;font-size:x-large">Jquery UI</a>
+            </li>
+        </ul>
+
+
+
+
+
+
+
+    </div>
+
+</body>
+</html>

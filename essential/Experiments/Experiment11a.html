@@ -1,0 +1,33 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>Get the top artists and their playcounts using last.fm API</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+    <h2>Get Top Artists from Present Chartings</h2>
+    <script>
+        $(document).ready(function () {
+            $.getJSON("http://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=1bc8721107d980dbbf6357927816c966&format=json&callback=?", function (json) {
+                var html = '';
+                $.each(json.artists.artist, function (i, item) {
+                    html += "<p><a href=" + item.url + " target='_blank'>" + item.name + " - " + "Play count : " + item.playcount + "</a><img src=" + item.image[1]["#text"] +"></p>";
+                    console.log(item.image);
+                });
+                $('#result').append(html);
+            });
+        });
+    </script>
+
+    
+    <div id="result"></div>
+
+    <h2>DOCUMENTATION</h2>
+    <ul>
+        <li>This is one of my experiments to display top artists from the current charting</li>
+        <li>The charts are changed every week</li>
+        <li>This is an experiment pertaining to my project</li>
+    </ul>
+    
+</body>
+</html>

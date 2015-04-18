@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+         #container{
+            width:900px;
+            height:900px;
+            margin:0 auto;
+            border:double;
+            border-radius:25px;
+            background-color:rgba(0,0,0,0.6);
+        }
+         *{
+             color:white;font-family:LilyUPC;
+             font-size:x-large
+         }
+    </style>
+</head>
+<body>
+    
+
+    <div id="container">
+    <h3> Javascript Examples</h3>
+    <br />
+        <div style="border:double;border-color:white">
+            <p> This is a simple JavaScript example where a button click displays the date</p>
+            <button onclick="GetDateToday()" style="color:black">Click me for the time</button>
+
+            <script>
+                function GetDateToday() {
+                    document.getElementById("date").innerHTML = Date();
+                }
+            </script>
+
+            <p id="date"></p>
+        </div>
+    <br />
+        <div style="border:double;border-color:white">
+
+            <p id="text" style="color:white;font-family:LilyUPC;font-size:xx-large">
+                Javascript is so cool :D
+            </p>
+
+            <input type="button" value="Hide text"
+                   onclick="document.getElementById('text').style.visibility='hidden'" style="border-radius:2px;color:black">
+
+            <input type="button" value="Show text"
+                   onclick="document.getElementById('text').style.visibility='visible'" style="border-radius:2px;color:black">
+        </div>
+    <br />
+        <div style="border:double;border-color:white">
+            <h2>Documentation</h2>
+            <p>
+                First Example indicates how on a click of a button , the current time is displayed.This is done using the document attribute in javascript.
+
+            </p>
+            <p>
+                Second Example indicates how a click can make a text disappear and again one click can bring it back. This is acheived by toggling the visibility of the buttons.
+
+            </p>
+        </div>
+    
+
+        <h2 style="color:white;font-family:LilyUPC;font-size:xx-large">Source Code</h2>
+        <a href="../../mal/fileview/default.aspx?~/Experiments\Experiment1b.html" target="_blank" style="color:white;font-family:LilyUPC;font-size:x-large">Source Code: HTML</a>
+        <h2 style="color:white;font-family:LilyUPC;font-size:xx-large">References</h2>
+        <a href="http://www.w3schools.com" style="color:white;font-family:LilyUPC;font-size:x-large">W3Schools</a></div>
+
+</body>
+</html>

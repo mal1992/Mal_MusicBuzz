@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        *{
+    font-family:cursive;
+           font-size:25px;
+           color:grey;
+           
+}
+        body {
+            background-image: url("../images/background.jpg");
+        }
+        #box{
+            text-align:center;
+        }
+         #container {
+            width: 900px;
+            height: 1300px;
+            margin: 0 auto;
+            border: double;
+            background-color:white;
+            border-radius: 25px;
+            opacity: 0.4;
+            /*For IE : this is required !!! */
+            filter: alpha(opacity=60);
+        }
+  
+.box{
+	text-align:left;
+	width:auto;
+	height:auto;
+}
+
+
+
+canvas{
+
+	position:relative;
+	-webkit-animation:canvasAnimation 5s; 
+	
+}
+
+        @-webkit-keyframes canvasAnimation {
+
+            0% {
+                -webkit-transform: rotate(90deg);
+                left: 0px;
+                top: 0px;
+            }
+        }
+
+@media only screen and (max-width: 1100px) {
+            #container{
+                width:90%;
+            }
+
+}
+
+
+
+    </style>
+    <link rel="stylesheet" type="text/css" href="css3.css" />
+    <script type="text/javascript">
+
+        //variables required for the game 
+        var placesOccupid = 0;
+        var w;
+        var y;
+
+        var canvasarea;
+
+		var DRAWME;
+		var data;
+		var towin;
+		var turn = 0;
+		
+		var c;
+		var object;
+		
+
+		
+		window.onload=function(){
+
+			DRAWME = new Array();
+			data = new Array();
+            //which all positions will lead to game end.
+			towin = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+
+			for(var l = 0; l <= 8; l++){
+			    DRAWME[l] = false;
+                // to place space in it
+			data[l]='';
+			}
+		}
+
+		// To draw the pieces after the on click event this happens
+		function canvasClicked(canvasNumber){
+			canvasarea = "canvas"+canvasNumber;
+			c = document.getElementById(canvasarea);
+			object = c.getContext("2d");
+
+			if(DRAWME[canvasNumber-1] ==false){
+			    if (turn % 2 == 0) {
+
+                    //helps me to draw the "X"
+				    object.beginPath();
+				    object.lineWidth = 9;
+					object.moveTo(10,10);
+					object.lineTo(40,40);
+					object.moveTo(40,10);
+					object.lineTo(10,40);
+					object.stroke();
+					object.closePath();
+					
+					data[canvasNumber-1] = 'X';
+				}
+
+			    else {
+			        //helps me to draw the "O"
+					object.beginPath();
+					object.arc(25,25,20,0,Math.PI*2,true);
+					object.stroke();
+					object.closePath();
+                    // i want to fill the circle
+					object.fill();
+					data[canvasNumber-1] = 'O';
+				}
+
+				turn++;
+				DRAWME[canvasNumber-1] = true;
+				placesOccupid++;
+                //function that checks for the winners
+				checkForWinners(data[canvasNumber-1]);
+
+                //if all the places in the board are filled 
+				if(placesOccupid==9){
+					alert("All spaces occupied: Game Over");
+					location.reload(true);
+				}
+
+			}
+			else{
+				alert("Please choose another position");
+			}
+
+		}
+
+		function checkForWinners(symbol){
+
+		    for (var a = 0; a < towin.length; a++) {
+                //to check all possible positions 
+			if(data[towin[a][0]]==symbol&&data[towin[a][1]]==	symbol&&data[towin[a][2]]==symbol){
+				alert(symbol+ " won the game :D !!!");
+				playAgain();
+			}
+			}
+
+		}
+
+		function playAgain(){
+			y=confirm("Wanna Play Again?");
+			if(y==true){
+				alert("Here we go : A new Game ");
+				location.reload(true);
+			}
+			else{
+				alert("You will be missed :( ");
+		}
+
+		}
+
+
+    </script>
+</head>
+<body>
+    <div id="container">
+
+
+        <h1 >Tic-Tac-Toe</h1>
+        <h2>Using CSS,Javascript and HTML</h2>
+        <h5 style="color:blueviolet;font-weight:600;margin:0 auto;font-size:larger;text-align:center">Start Playing : First Player starts with "X"</h5>
+        <div id="box">
+
+            <canvas id="canvas1" width="50" height="50" style="border:2px solid black;border-radius:5px;" onclick="canvasClicked(1)"></canvas>
+            <canvas id="canvas2" width="50" height="50" style="border:2px solid black;border-radius:5px;" onclick="canvasClicked(2)"></canvas>
+            <canvas id="canvas3" width="50" height="50" style="border:2px solid black;border-radius:5px;" onclick="canvasClicked(3)"></canvas><br />
+            <canvas id="canvas4" width="50" height="50" style="border:2px solid black;border-radius:5px;" onclick="canvasClicked(4)"></canvas>
+            <canvas id="canvas5" width="50" height="50" style="border:2px solid black;border-radius:5px;" onclick="canvasClicked(5)"></canvas>
+            <canvas id="canvas6" width="50" height="50" style="border:2px solid black;border-radius:5px;" onclick="canvasClicked(6)"></canvas><br />
+            <canvas id="canvas7" width="50" height="50" style="border:2px solid black;border-radius:5px;" onclick="canvasClicked(7)"></canvas>
+            <canvas id="canvas8" width="50" height="50" style="border:2px solid black;border-radius:5px;" onclick="canvasClicked(8)"></canvas>
+            <canvas id="canvas9" width="50" height="50" style="border:2px solid black;border-radius:5px;" onclick="canvasClicked(9)"></canvas>
+        </div>
+
+        <h2>Documenation</h2>
+        <p>I tried out a simple tic tac toe game </p>
+        <ul>
+            <li>First the place holders are created using HTML Canvas</li>
+            <li>Each of the 9 canvas are numbered from 1 to 9 so its easier to pass that value to javascript</li>
+            <li>The Cross and the Circle are drawn using Javascript</li>
+            <li>The Drawn figures are placed inside the canvas when the user clicks anywhere inside the canvas</li>
+            <li>Using Javascript we check for the winning streak, if all the squares are occupied or if the user 
+                clicks on the same place all the time</li>
+        </ul>
+
+        <h2 style="font-family:LilyUPC;font-size:xx-large">Source Code</h2>
+        <a href="../../mal/fileview/default.aspx?~/Experiments\Experiment2e.html" target="_blank" style="font-family:LilyUPC;font-size:x-large">Source Code: HTML</a>
+        <h2 style="font-family:LilyUPC;font-size:xx-large">References</h2>
+        <ul>
+            <li>
+                <a href="http://billmill.org/static/canvastutorial/ball.html" style="font-family:LilyUPC;font-size:x-large">Bill Mill - How to draw a cirlce in javascript</a>
+            </li>
+            <li>
+                <a href="http://www.tutorialspoint.com/javascript/" style="font-family:LilyUPC;font-size:x-large">TutorialPoint</a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
+
+
+

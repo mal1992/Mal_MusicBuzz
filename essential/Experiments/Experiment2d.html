@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+         body {
+            background-image: url("../images/background.jpg");
+        }
+        *{
+            font-family:cursive;
+            color:white;
+            font-size:25px;
+        }
+        #container {
+            width: 900px;
+            height: 1700px;
+            margin: 0 auto;
+            border: double;
+            background-color: black;
+            border-radius: 25px;
+            opacity: 0.6;
+        }
+
+        @media only screen and (max-width: 1100px) {
+            #container {
+                width: 90%;
+            }
+        }
+
+        body { margin: 10px; }
+
+.grid-container { margin: 0 auto; }
+
+.grid-row { width: 100%; }
+    .grid-row > * {
+        -webkit-transition    : all 400ms ease-out;
+        -moz-transition        : all 400ms ease-out;
+        -o-transition        : all 400ms ease-out;
+        -ms-transition        : all 400ms ease-out;
+        transition            : all 400ms ease-out;    
+    }
+    .grid-row:before, .grid-row:after { content: ""; display: table; }
+    .grid-row:after { clear: both; }
+    .grid-row { *zoom: 1; }
+
+.grid-col_1, .grid-col_2, .grid-col_3, .grid-col_3c, .grid-col_4, .grid-col_4c, .grid-col_5, .grid-col_5c {
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 1.5%;
+    float: left;
+    display: block;
+    border-radius:5px;
+}
+    .grid-col_1 { width: 98%; }
+    .grid-col_2 { width: 48%; }
+    .grid-col_3 { width: 31.3333333333%; }
+    .grid-col_4 { width: 23%; }
+    .grid-col_5 { width: 18%; }
+    
+
+
+.add-color1 { background: #009933; }
+.add-color2 { background: #FF0066; }
+
+@media only screen and (min-width: 1200px) {  }
+@media only screen and (max-width: 1200px) {  }
+@media only screen and (max-width: 1024px) {  }
+
+@media handheld, only screen and (max-width: 768px) {
+    .grid-col_4 { width:48%; border-radius:5px;}
+
+}
+
+@media handheld, only screen and (max-width: 480px) {
+    .grid-col_2 { width:98%;border-radius:5px; }
+    .grid-col_3 { width:98%;border-radius:5px; }
+    .grid-col_4 { width:98%; border-radius:5px;}
+    .grid-col_5 { width:98%;border-radius:5px; }
+
+
+}
+
+@media handheld, only screen and (max-width: 320px) {
+    .grid-container { width: 100% !important; max-width: 100% !important; }
+    .grid-col_1, .grid-col_2, .grid-col_3, .grid-col_3c, .grid-col_4, .grid-col_4c, .grid-col_5, .grid-col_5c {
+            width: 92%;
+            margin-left: 0%;
+            margin-right: 0%;
+            padding-left: 4%;
+            padding-right: 4%;
+    }
+}
+
+@media handheld, only screen and (max-width: 240px) {  }
+
+
+        </style>
+
+        </head > <body > 
+    <div id="container" >
+        <h1>Responsive Grids</h1>
+        <div class="grid-container">
+            <div class="grid-row">
+                <div class="grid-col_5 add-color1"> I</div>
+                <div class="grid-col_5 add-color2"> am</div>
+                <div class="grid-col_5 add-color1"> a</div>
+                <div class="grid-col_5 add-color2"> Fluid</div>
+                <div class="grid-col_5 add-color1"> Grid</div>
+            </div>
+
+            <div class="grid-row">
+                <div class="grid-col_4 add-color1"> You</div>
+                <div class="grid-col_4 add-color2"> can</div>
+                <div class="grid-col_4 add-color1"> See</div>
+                <div class="grid-col_4 add-color2"> Me</div>
+            </div>
+
+            <div class="grid-row">
+                <div class="grid-col_3 add-color1"> become</div>
+                <div class="grid-col_3 add-color2"> Smaller</div>
+                <div class="grid-col_3 add-color1"> as</div>
+            </div>
+
+            <div class="grid-row">
+                <div class="grid-col_2 add-color1"> you</div>
+                <div class="grid-col_2 add-color2"> resize</div>
+            </div>
+
+            <div class="grid-row">
+                <div class="grid-col_1 add-color1">browser</div>
+            </div>
+
+            <h2>Documentation</h2>
+            <p>
+                This Experiment portrays how a grid can be made responsive based on the screen size.
+                The main objective of this grid is to display all the contents present inside the grid on resizing.
+                To avoid the grid being cut off on resizing , the grid elements are made to display one below the other 
+                for user comfort.
+                
+            </p>
+            <p>
+                It will look better if the information is displayed in an orderly format and which spans the screen completely
+               for better user experience.
+            </p>
+            <h2>Code Snippets</h2>
+            <pre>
+                @media only screen and (max-width: 480px) 
+                {
+                            .grid-col_2 { width:98%;border-radius:5px; }
+                            .grid-col_3 { width:98%;border-radius:5px; }
+                            .grid-col_4 { width:98%; border-radius:5px;}
+                            .grid-col_5 { width:98%;border-radius:5px; }
+                }
+</pre>
+            <p>
+                Media queries is used to impart responsiveness through CSS.
+                
+            </p>
+            <p>
+                This code specifies that when the screen size falls below 480px, then the attributes for the grid columns specified
+                also changes.
+            </p>
+
+
+
+            <h2 style="color:white;font-family:LilyUPC;font-size:xx-large">Source Code</h2>
+            <a href="../../mal/fileview/default.aspx?~/Experiments\Experiment2d.html" target="_blank" style="color:white;font-family:LilyUPC;font-size:x-large">Source Code: HTML</a>
+            <h2 style="color:white;font-family:LilyUPC;font-size:xx-large">References</h2>
+            <ul>
+                <li>
+                    <a href="http://demos.cyberchimps.com/responsivepro/responsive-grid/" style="color:white;font-family:LilyUPC;font-size:x-large">CyberChimps</a>
+                </li>
+                <li>
+                    <a href="http://www.creativebloq.com/web-design/build-responsive-site-week-typography-and-grids-part-2-9134361" style="color:white;font-family:LilyUPC;font-size:x-large">Creative Blog</a>
+                </li>
+            </ul>
+
+        </div>
+        </div>
+
+
+     </body > </html >

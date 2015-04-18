@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Node js basics</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Introduction to Node JS</h1>
+            <div class="container">
+                <h5>This Page will give you the basics of how you can install Node js on your system</h5>
+                <h5>Here's a link to a Node Application I have hosted on Heroku : <a href="https://warm-stream-8597.herokuapp.com" target="_blank">Node Application</a></h5>
+                 <p>You will see a smiley face on opening the page , keep refreshing it to see a new face : In my Node App</p>
+            </div>
+
+        </div>
+        
+       <h2>Step 1</h2>
+        <ul>
+            <li><h4>System Settings : MAC OS</h4></li>
+            <li>Install node js from its website - Nodejs. Click on install and run the downloaded setup in you system</li>
+            <li>It will install npm - Node package manager along with it </li>
+            <li>Open your terminal and enter "echo $PATH" to check if its placed in /usr/local/bin </li>
+            <li>Now type "Node" which will start the session</li>
+            <li>Enter "console.log('Node Intro');" and see if the output is displayed as "Node Intro Undefined"</li>
+            <li>This means you have installed node successfully in your system</li>
+            <li>To exit from session , Press control + C 'Twice' </li>
+            <li>To install npm packages , just use "npm install (packagename)"</li>
+        </ul>
+
+        <h2>Step 2</h2>
+        <ul>
+            <li>
+                Enter "npm install express" to install express package
+            </li>
+            <li>Go to the node directory and create a js file called Serverapp.js and place the following code</li>
+            <li>
+                <pre>
+                var express = require('express')
+                var app = express()
+                app.get('/', function (req, res) {
+                res.send('Node Introduction')
+                })
+                app.listen(3000)
+</pre>
+            </li>
+            <li> now run this program in the terminal using node ./serverapp.js</li>
+            <li> the Port 3000 will be opened now</li>
+            <li> Open your favourite browser and go to "localhost:3000" and see if "Node Introduction" is displayed</li>
+            <li>Node has been successfully installed and now its time to create detailed apps</li>
+        </ul>
+        <h2>My Node Application Hosted on Heroku Cloud</h2>
+        <ul>
+            <li>I have hosted a Node Application on Heroku Cloud : just click the link available above in the Jumbotron and check out my Node Js APP</li>
+        </ul>
+
+        <hr />
+        <h2 style="font-family:LilyUPC;font-size:xx-large">Source Code</h2>
+        <a href="../../mal/fileview/default.aspx?~/Experiments\Experiment8a.html" target="_blank" style="font-family:LilyUPC;font-size:x-large">Source Code: HTML</a>
+        <br />
+
+        <h2 style="font-family:LilyUPC;font-size:xx-large">References</h2>
+        <ul>
+            <li>
+                <a href="http://jeffkreeftmeijer.com/2010/things-i-learned-from-my-node.js-experiment/" style=" font-family:lilyupc;font-size:x-large">Intro to Node</a>
+            </li>
+            <li>
+                <a href="https://nodejs.org/documentation/tutorials/" style="font-family:LilyUPC;font-size:x-large">Node JS Tutorial</a>
+            </li>
+        </ul>
+    </div>
+    
+       
+   
+</body>
+</html>

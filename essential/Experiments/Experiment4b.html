@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>document.write('<base href="' + document.location + '" />');</script>
+
+    <script src="Exp4b.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script  src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+
+    <link href="Exp4b.css" rel="stylesheet" />
+
+</head>
+
+  
+        <body ng-app="">
+
+            <div id="container" ng-controller="weather">
+                <h2>Retreiving the Weather forecast using Angular</h2>
+                <label for="city">Enter the City for one day weather information:</label><br />
+                <div style="text-align:center">
+                    
+                    <input id="cityname" class="form-control" type="text" ng-model="cityname" placeholder="Enter a city" /><br />
+                    <br />
+                    <button ng-click="getweather()">Click to view the weather forecast for today</button>
+
+                </div>
+                <br />
+                <br />
+                <table style="margin:3px">
+               
+                        <tr>
+                            <th>Date</th>
+                            <th>High Temperature </th>
+                            <th>Low Temperature </th>
+
+                        </tr>
+          
+                    <tr ng-repeat="wea in Weather">
+                        <td>{{wea.date}}</td>
+                        <td>{{wea.maxtempC}} </td>
+                        <td> {{wea.mintempC}}</td>
+                        
+                    </tr>
+                </table>
+                <br /><br />
+               
+                <hr />
+                <h2>DOCUMENTATION</h2>
+                <ul>
+                    <li>This is a simple app which will display the weather based on the city you enter</li>
+                    <li>It retrieves the value from an weather app API using angular js</li>
+                    <li>
+                        <pre>
+                                            function weather($scope, $http) {
+                                          $scope.getweather = function () {
+                                            var address = URL.replace("CITY", $scope.cityname);
+                                            $http.get(address).success(function (response) {
+                                              $scope.Weather = response.data.weather;
+                                            console.log($scope.Weather);
+                                                     });}}
+    
+                        </pre>
+                        This is the function which will retrieve the value from the URL and display the weather conditions.The URL link is specific for every user who has registered with the aPI key.
+                    </li>
+                    <li>The minimum and maximum values are displayed.</li>
+                </ul>
+                <hr />
+                <h2 style="font-family:LilyUPC;font-size:xx-large">Source Code</h2>
+                <a href="../../mal/fileview/default.aspx?~/Experiments\Experiment4b.html" target="_blank" style="font-family:LilyUPC;font-size:x-large">Source Code: HTML</a>
+                <br />
+                <a href="../../mal/fileview/default.aspx?~/Experiments\Exp4b.js" target="_blank" style="font-family:LilyUPC;font-size:x-large">Source Code: JS</a>
+                <br />
+                <a href="../../mal/fileview/default.aspx?~/Experiments\Exp4b.css" target="_blank" style="font-family:LilyUPC;font-size:x-large">Source Code: CSS</a>
+
+                <h2 style="font-family:LilyUPC;font-size:xx-large">References</h2>
+                <ul>
+                    <li>
+                        <a href="https://thinkster.io/a-better-way-to-learn-angularjs/" style="font-family:LilyUPC;font-size:x-large">thinkster-Angular Tutorial</a>
+                    </li>
+                    <li>
+                        <a href="https://egghead.io/articles/new-to-angularjs-start-learning-here" style="font-family:LilyUPC;font-size:x-large">Egghead.io</a>
+                    </li>
+                </ul>
+             </div>
+           
+
+
+
+
+        </body>
+</html>
+
+

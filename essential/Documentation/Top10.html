@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Top Artist</title>
+    <style>
+        body {
+            background-color: black;
+            font-family: "Lucida Grande", sans-serif;
+        }
+
+        #container {
+            width: 900px;
+            height: 1400px;
+            margin: 0 auto;
+            border: 20px thick;
+            border-color: green;
+            background-color: white;
+            border-radius: 25px;
+        }
+
+        h2 {
+            color: black;
+        }
+
+        #borderd {
+            margin: 30px;
+            padding: 20px;
+            background: #fff;
+            border: solid 3px black;
+        }
+
+        @media only screen and (max-width: 1100px) {
+            #container {
+                width: 90%;
+            }
+
+            * {
+                color: black;
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <br />
+        <div id="borderd">
+            <br />
+            <h1 style="text-align:center">Top Artists</h1>
+            <hr />
+            <h5>
+                COMPONENTS IN THIS PAGE
+            </h5>
+            <p>
+                <ul>
+                    <li>A Quote with CSS animation</li>
+                    <li>Top 20 Artists currently present in the charting </li>
+                    <li>Number of users currently listening from that station</li>
+                </ul>
+            </p>
+
+            <h5>OUTLINE</h5>
+            <p>
+               A simple quote on music with a simple CSS animation followed by a list of top 20 artist names.It is ranked from 1 
+                through 20. Each of the artist has their Photo displayed along with the number of listeners who are currently trending
+                listening to the artists.
+
+            </p>
+            <pre style="color:palevioletred">
+                  $.each(json.artists.artist, function (i, item) {<br />
+                <br />
+                    html += "&lt;div id='header'&gt;&lt;h4&gt;&lt;a style='color:black' 
+                             href=" + item.url + " target='_blank'&gt;" + 
+                             item.name + "&lt;/h4&gt;&lt;/a&gt;&lt;/div&gt;";<br />
+                    html += "&lt;div id='nav'&gt;&lt;h2&gt;" + 
+                            count + "&lt;/h2&gt;&lt;/div&gt;";<br />
+                    html += "&lt;div id='section'&gt;&lt;p&gt;&lt;img style='width:100px;
+                    height:100px' src=" + item.image[2]["#text"] + "&gt;&lt;/p&gt;&lt;/div&gt;";<br />
+                    html += "&lt;div id='footer'&gt;&lt;p &gt; " + 
+                    item.listeners + " are listening right now&lt;/p&gt; 
+                    &lt;/div&gt;&lt;/br&gt;"<br />
+                     count += 1;<br />
+                });<br />
+                html += "&lt;/table&gt;"<br />
+                $('#result').append(html);
+    </pre>
+            <h5>API USED</h5>
+            <p>The Last.fm API is used to get the top artists from their database.The chartings are updated on weekly basis
+            The Number of listeners is the count of users listening to that particular artist in that station.
+            </p>
+
+        </div>
+    </div>
+</body>
+</html>

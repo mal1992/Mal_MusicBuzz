@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   
+    <title>Node Application</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Node js Application</h1>
+            <div class="container">
+                <h5>Node Application hosted on Heroku Platform</h5>
+                <h5>Here's a link to a Node Application I have hosted on Heroku : <a href="https://malavika-node.herokuapp.com" target="_blank">Node Application</a></h5>
+            </div>
+        </div>
+            <ul>
+                <li>
+                    I have hosted a To-do Application on Heroku platform (instead of openshift) where it makes use of the mongodb database through mongoose.
+                </li>
+                <li>
+                    <pre>
+                  $scope.createTodo = function() {
+			            // validate the formData to make sure that something is there
+			           // if form is empty, nothing will happen
+			      if ($scope.formData.text != undefined) {
+				  $scope.loading = true;
+				      // call the create function from our service (returns a promise object)
+				  Todos.create($scope.formData)
+					  // if successful creation, call our get function to get all the new todos
+				  .success(function(data) {
+						$scope.loading = false;
+						$scope.formData = {}; // clear the form so our user is ready to enter another
+						$scope.todos = data; // assign our new list of todos
+					});
+			        }
+		            };
+                    </pre>
+                </li>
+            </ul>
+        <hr />
+        <h2 style="font-family:LilyUPC;font-size:xx-large">Source Code</h2>
+        <a href="../../mal/fileview/default.aspx?~/Experiments\Experiment8b.html" target="_blank" style="font-family:LilyUPC;font-size:x-large">Source Code: HTML</a>
+        <br />
+
+        <h2 style="font-family:LilyUPC;font-size:xx-large">References</h2>
+        <ul>
+            <li>
+                <a href="http://jeffkreeftmeijer.com/2010/things-i-learned-from-my-node.js-experiment/" style=" font-family:lilyupc;font-size:x-large">Intro to Node</a>
+            </li>
+            <li>
+                <a href="https://nodejs.org/documentation/tutorials/" style="font-family:LilyUPC;font-size:x-large">Node JS Tutorial</a>
+            </li>
+        </ul>
+        </div>
+</body>
+</html>

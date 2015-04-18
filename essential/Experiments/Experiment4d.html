@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script type="text/javascript" ng:autobind
+            src="http://code.angularjs.org/0.10.5/angular-0.10.5.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script src="Exp4d.js"></script>
+    <link href="Exp4d.css" rel="stylesheet" />
+   
+</head>
+<body>
+    <div id="container">
+        <h1>Sortable Table</h1>
+        <p>Click on the Heading "name","Surname","city" to sort that row.</p>
+        <p>When you click on the headings , you will notice they will sort descending or sort ascending and it be be toggling</p>
+        <div style="margin:0 auto;text-align:center">
+            <table ng:controller="Sorttable" style="border:double">
+                <thead>
+                    <tr style="border:double">
+                        <th ng:repeat="(i,th) in head" ng:class="selectedCls(i)" ng:click="changeSorting(i)">{{th}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng:repeat="row in body.$orderBy(sort.column, sort.descending)">
+                        <td>{{row.a}}</td>
+                        <td>{{row.b}}</td>
+                        <td>{{row.c}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <hr />
+        <h2>DOCUMENTATION</h2>
+        <ul>
+            <li>Based on the headings you click that particular row will be sorted .For example if you click 
+            "name" then it will be alphabetically sorted.</li>
+            <li>If you now click surname then that row will be sorted ascending first and then the second click will lead to descending order</li>
+        </ul>
+        <hr />
+        <h2 style="font-family:LilyUPC;font-size:xx-large">Source Code</h2>
+        <a href="../../mal/fileview/default.aspx?~/Experiments\Experiment4d.html" target="_blank" style="font-family:LilyUPC;font-size:x-large">Source Code: HTML</a>
+        <br />
+        <a href="../../mal/fileview/default.aspx?~/Experiments\Exp4d.js" target="_blank" style="font-family:LilyUPC;font-size:x-large">Source Code: JS</a>
+
+        <h2 style="font-family:LilyUPC;font-size:xx-large">References</h2>
+        <ul>
+            <li>
+                <a href="https://thinkster.io/a-better-way-to-learn-angularjs/" style="font-family:LilyUPC;font-size:x-large">thinkster-Angular Tutorial</a>
+            </li>
+            <li>
+                <a href="https://egghead.io/articles/new-to-angularjs-start-learning-here" style="font-family:LilyUPC;font-size:x-large">Egghead.io</a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

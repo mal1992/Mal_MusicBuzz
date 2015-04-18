@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="http://code.jquery.com/jquery-1.9.1.js" language="javascript" type="text/javascript"></script>
+
+    <style>
+          *{
+           font-family: cursive;
+           color:white;
+       }
+        body {
+    background-image: url("../images/bg1.jpg");
+    }
+        button{
+            color:white;
+            background-color:black;
+        }
+    #container {
+    width: 900px;
+    height: 1700px;
+    margin: 0 auto;
+    border: double;
+    background-color: black;
+    border-radius: 25px;
+    opacity: 0.7;
+    /*For IE : this is required !!! */
+    filter: alpha(opacity=60);
+    }
+     @media only screen and (max-width: 1100px) {
+
+
+           * {
+               font-size: 15px;
+           }
+
+           #container {
+               width: 90%;
+           }
+       }
+    
+    </style>
+    <script>
+    $(document).ready(function () {
+
+        $("button").click(function () {
+            var a = $('#name').val();
+            var b = $('#dob').val();
+            var c = $('#fav').val();
+           
+            $('#name-d').text(a);
+            $('#dob-d').text(b);
+            $('#fav-d').text(c);
+           
+           
+          
+        });
+    });
+   
+    </script>
+
+</head>
+<body>
+    <div id="container">
+        <h2> Fill out the form and see your details appear in a container below ! :D</h2>
+        <div style="background-color:grey;border-radius:9px">
+            <table>
+                <tr>
+                    <td style="color:peachpuff">Enter your name</td>
+                    <td><input type="text" id="name" style="background-color:black" /></td>
+
+                </tr>
+                <tr>
+                    <td style="color:peachpuff">Enter your Date-of-Birth</td>
+                    <td><input type="date" id="dob" style="background-color:black" /></td>
+
+                </tr>
+                <tr>
+                    <td style="color:peachpuff">What all do you like about Jquery ?</td>
+                    <td><textarea id="fav" style="background-color:black"></textarea></td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <button>Click to view what you have typed :D </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+       <br />
+        <br />
+        <p> See your details appear here : fill the form and click the button please :) </p>
+        <table style="width:50%">
+            <tr>
+                <td style="color:peachpuff;font-size:large;">YOUR NAME IS:</td>
+                <td id="name-d" style="border:solid;width:300px"></td>
+
+            </tr>
+            <tr>
+                <td style="color:peachpuff;font-size:large">YOUR DATE-OF-BIRTH IS:</td>
+                <td id="dob-d" style="border:solid;width:300px"></td>
+
+            </tr>
+            <tr>
+                <td style="color:peachpuff;font-size:large">LIKES ABOUT JQUERY:</td>
+                <td id="fav-d" style="border:solid;width:300px"></td>
+
+            </tr>
+        </table>
+        <hr />
+        <h2>Documenation</h2>
+        <p>Collecting the Form details</p>
+        <ul>
+            <li>JJquery collects the value from the form and displays them separately</li>
+            <li>We get the value from the input box using the "('id').val()" </li>
+            <li>And we display the value as a text format using ".text()" function</li>
+            <li><pre>
+                                      var c = $('#name').val();
+                                        // this will set the value of name to variable c
+                                      $('#name-d').text(c);
+                                        // this will set the text value of "name-d" as the value of variable "c"
+            </pre></li>
+            <li>You can keep updating your values in the form and you will see the text value also getting updated on click of a button</li>
+            
+        </ul>
+        <hr />
+        <h2 style="font-family:LilyUPC;font-size:xx-large">Source Code</h2>
+        <a href="../../mal/fileview/default.aspx?~/Experiments\Experiment3c.html" target="_blank" style="font-family:LilyUPC;font-size:x-large">Source Code: HTML</a>
+        <h2 style="font-family:LilyUPC;font-size:xx-large">References</h2>
+        <ul>
+            <li>
+                <a href="http://learn.jquery.com" style="font-family:LilyUPC;font-size:x-large">LearnJquery</a>
+            </li>
+            <li>
+                <a href="http://www.htmlgoodies.com/tutorials/forms/article.php/3900221/jQuery-Basics-for-Web-Developers-Animation.htm" style="font-family:LilyUPC;font-size:x-large">HTMLGoodies-Basics of Jquery</a>
+            </li>
+            <li>
+                <a href="http://www.w3schools.com/jquery/" style="font-family:LilyUPC;font-size:x-large">W3school</a>
+            </li>
+           
+        </ul>
+
+    </div>
+</body>
+</html>

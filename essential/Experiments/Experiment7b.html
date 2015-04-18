@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>login</title>
+ 
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+       <h2>A simple OAuth Experiment which will help you navigate to your gmail on just a click</h2>
+       
+        <a href="https://accounts.google.com/ServiceLoginBoxAuth?Email=%28email%29&Passwd=%28password%29"
+           class="btn btn-primary">Login with Google</a>
+
+        <a href="https://accounts.google.com/o/oauth2/auth?response_type=token&client_id=561922263876-cg50vse9q1356b95bkcqdkldb56rf5ck.apps.googleusercontent.com&redirect_uri=http://net4.ccs.neu.edu/home/mal/story/index.htm&scope=https://www.googleapis.com/auth/plus.login&target=top"
+           class="btn btn-primary">Login with Google</a>
+            <br />
+            <hr />
+
+            <h2>DOCUMENTATION</h2>
+            <ul style="font-size:large">
+                <li>
+                    This is a OAuth Experiment which is required for my project.
+                </li>
+
+                <li>
+                    I created a ID particular for my website which authenticates the user.Made use of OAuth2.0.
+                </li>
+                <li>
+                    Handles Active session lookups, authenticates the user.
+                </li>
+                <li>Since our website uses iFrame , our browser might not allow us to go to the login Page, Use safari as your browser for best results</li>
+            </ul>
+            <hr />
+            <h2 style="font-family:LilyUPC;font-size:xx-large">Source Code</h2>
+            <a href="../../mal/fileview/default.aspx?~/Experiments\Experiment7b.html" target="_blank" style="font-family:LilyUPC;font-size:x-large">Source Code: HTML</a>
+
+            <br />
+
+            <h2 style="font-family:LilyUPC;font-size:xx-large">References</h2>
+            <ul>
+                <li>
+                    <a href="http://oauth.net/2/" style="font-family:LilyUPC;font-size:x-large">OAuth 2.0 BAsics</a>
+                </li>
+                <li>
+                    <a href="https://developers.google.com/accounts/docs/OAuth2" style="font-family:LilyUPC;font-size:x-large">Google Developers guide to use OAuth token </a>
+                </li>
+            </ul>
+
+
+
+</div>
+</body>
+</html>

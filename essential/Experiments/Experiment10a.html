@@ -1,0 +1,659 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>See your favourite artist Live</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
+   
+    <script src="https://rdio.com/api/api.js?client_id=P8QAySiG3513JG_YhhMYmQ"></script>
+    <script src="https://www.rdio.com/media/fresh/now/api-helper.js"></script>
+    <script>
+
+        function getRdioPlayer(readyCallback, as) {
+            var curSongIndex = 0;
+            var curSongs = [];
+            var autoStop = as === undefined ? true : as;
+            var callback = null;
+
+            console.log('as ', as, autoStop);
+
+            function getRdioID(song) {
+                var id = song.tracks[0].foreign_id;
+                var rawID = id.split(':')[2]
+                return rawID;
+            }
+
+            function hasTrack(song) {
+                return song.tracks.length > 0;
+            }
+
+            function playSong(song) {
+                if (hasTrack(song)) {
+                    var rdioID = getRdioID(song);
+                    R.player.play({
+                        source: rdioID
+                    });
+
+                    if (callback) {
+                        callback(song);
+                    }
+                    $("#rp-song-title").text(song.title);
+                    var link = $("<a>")
+                        .attr('href', 'http://static.echonest.com/echotron/?id=' + song.artist_id)
+                        .attr('target', 'echotron')
+                        .text(song.artist_name);
+                    $("#rp-artist-name").empty();
+                    $("#rp-artist-name").append(link);
+                }
+            }
+
+
+            function playSongAndAdjustIndex(song) {
+                playSong(song);
+
+                for (var i = 0; i < curSongs.length; i++) {
+                    var csong = curSongs[i];
+                    if (csong.id == song.id) {
+                        curSongIndex = i + 1;
+                        break;
+                    }
+                }
+            }
+
+            function playNextSong() {
+                while (curSongIndex < curSongs.length) {
+                    var song = curSongs[curSongIndex++];
+                    if (hasTrack(song)) {
+                        playSong(song);
+                        break;
+                    }
+                }
+            }
+
+            function playPreviousSong() {
+                while (curSongIndex > 0) {
+                    var song = curSongs[--curSongIndex];
+                    if (hasTrack(song)) {
+                        playSong(song);
+                        break;
+                    }
+                }
+            }
+
+            function startPlayingSongs(songs) {
+                if (curSongs != songs) {
+                    curSongIndex = 0;
+                    curSongs = songs;
+                }
+                playNextSong();
+            }
+
+            function setCallback(cb) {
+                callback = cb;
+            }
+
+            function addSongs(songs, playNow) {
+                curSongIndex = 0;
+                curSongs = songs;
+
+                if (playNow) {
+                    playNextSong();
+                } else if (!(R.player.playState() == R.player.PLAYSTATE_PLAYING) && (curSongs.length > 0)) {
+                    autoStop = true;
+                    playNextSong();
+                }
+            }
+
+            function getTrackInfo(trackIDs, successCallback, errorCallback) {
+                R.request({
+                    method: 'get',
+                    content: {
+                        keys: $.join(trackIDs, ',')
+                    },
+                    success: successCallback,
+                    error: errorCallback
+                });
+            }
+
+
+            R.ready(function () {
+                R.player.on("change:playingTrack", function (track) {
+                    if (track) {
+                        var image = track.attributes.icon;
+                        $("#rp-album-art").attr('src', image);
+                    } else {
+                        playNextSong();
+                    }
+                });
+
+                R.player.on("change:playState", function (state) {
+                    if (state == R.player.PLAYSTATE_PAUSED) {
+                        $("#rp-pause-play i").removeClass("icon-pause");
+                        $("#rp-pause-play i").addClass("icon-play");
+                    }
+                    if (state == R.player.PLAYSTATE_PLAYING) {
+                        if (autoStop) {
+                            autoStop = false;
+                            R.player.pause();
+                        }
+                        $("#rp-pause-play i").removeClass("icon-play");
+                        $("#rp-pause-play i").addClass("icon-pause");
+                    }
+                });
+
+                R.player.on("change:playingSource", function (track) { });
+
+                $("#rp-pause-play").click(function () {
+                    R.player.togglePause();
+                });
+
+                $("#rp-play-next").click(function () {
+                    playNextSong();
+                });
+
+                $("#rp-play-prev").click(function () {
+                    playPreviousSong();
+                });
+
+                readyCallback();
+            });
+
+
+            var methods = {
+                addSongs: addSongs,
+                playSong: playSongAndAdjustIndex,
+                setCallback: setCallback
+            }
+
+            return methods;
+        }
+    </script>
+   <script>
+       function fetchApiKeyV1(callback) {
+           $.getJSON('http://developer.echonest.com/user/api_key.json', function (data) {
+               var apiKey = data.api_key;
+               var isLoggedIn = 'logged_in' in data && data.logged_in;
+               if (callback) {
+                   callback(apiKey, isLoggedIn);
+               }
+           }).error(function () {
+               var apiKey = 'API_KEY_ERROR'
+               var isLoggedIn = false;
+               if (callback) {
+                   callback(null, false);
+               }
+           });
+       }
+       function fetchApiKey(callback) {
+           var spareKey = 'AJYBC172TW7GL04YY';
+           $.ajax({
+               type: "GET",
+               dataType: "json",
+               xhrFields: { withCredentials: true },
+               url: "http://developer.echonest.com/user/api_key.json"
+           }).then(
+       function (data) {
+           if (callback) {
+               if (data.logged_in) {
+                   callback(data.api_key, data.logged_in);
+               } else {
+                   callback(spareKey, data.logged_in);
+               }
+           }
+       },
+       function (data) {
+           if (callback) {
+               callback(spareKey, false);
+           }
+       }
+               );
+       }
+   </script>
+   <script>
+       var dateFormat = function () {
+           var token = /d{1,4}|m{1,4}|yy(?:yy)?|([HhMsTt])\1?|[LloSZ]|"[^"]*"|'[^']*'/g,
+               timezone = /\b(?:[PMCEA][SDP]T|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time|(?:GMT|UTC)(?:[-+]\d{4})?)\b/g,
+               timezoneClip = /[^-+\dA-Z]/g,
+               pad = function (val, len) {
+                   val = String(val);
+                   len = len || 2;
+                   while (val.length < len) val = "0" + val;
+                   return val;
+               };
+
+           // Regexes and supporting functions are cached through closure
+           return function (date, mask, utc) {
+               var dF = dateFormat;
+
+               // You can't provide utc if you skip other args (use the "UTC:" mask prefix)
+               if (arguments.length == 1 && Object.prototype.toString.call(date) == "[object String]" && !/\d/.test(date)) {
+                   mask = date;
+                   date = undefined;
+               }
+
+               // Passing date through Date applies Date.parse, if necessary
+               date = date ? new Date(date) : new Date;
+               if (isNaN(date)) throw SyntaxError("invalid date");
+
+               mask = String(dF.masks[mask] || mask || dF.masks["default"]);
+
+               // Allow setting the utc argument via the mask
+               if (mask.slice(0, 4) == "UTC:") {
+                   mask = mask.slice(4);
+                   utc = true;
+               }
+
+               var _ = utc ? "getUTC" : "get",
+                   d = date[_ + "Date"](),
+                   D = date[_ + "Day"](),
+                   m = date[_ + "Month"](),
+                   y = date[_ + "FullYear"](),
+                   H = date[_ + "Hours"](),
+                   M = date[_ + "Minutes"](),
+                   s = date[_ + "Seconds"](),
+                   L = date[_ + "Milliseconds"](),
+                   o = utc ? 0 : date.getTimezoneOffset(),
+                   flags = {
+                       d: d,
+                       dd: pad(d),
+                       ddd: dF.i18n.dayNames[D],
+                       dddd: dF.i18n.dayNames[D + 7],
+                       m: m + 1,
+                       mm: pad(m + 1),
+                       mmm: dF.i18n.monthNames[m],
+                       mmmm: dF.i18n.monthNames[m + 12],
+                       yy: String(y).slice(2),
+                       yyyy: y,
+                       h: H % 12 || 12,
+                       hh: pad(H % 12 || 12),
+                       H: H,
+                       HH: pad(H),
+                       M: M,
+                       MM: pad(M),
+                       s: s,
+                       ss: pad(s),
+                       l: pad(L, 3),
+                       L: pad(L > 99 ? Math.round(L / 10) : L),
+                       t: H < 12 ? "a" : "p",
+                       tt: H < 12 ? "am" : "pm",
+                       T: H < 12 ? "A" : "P",
+                       TT: H < 12 ? "AM" : "PM",
+                       Z: utc ? "UTC" : (String(date).match(timezone) || [""]).pop().replace(timezoneClip, ""),
+                       o: (o > 0 ? "-" : "+") + pad(Math.floor(Math.abs(o) / 60) * 100 + Math.abs(o) % 60, 4),
+                       S: ["th", "st", "nd", "rd"][d % 10 > 3 ? 0 : (d % 100 - d % 10 != 10) * d % 10]
+                   };
+
+               return mask.replace(token, function ($0) {
+                   return $0 in flags ? flags[$0] : $0.slice(1, $0.length - 1);
+               });
+           };
+       }();
+
+       // Some common format strings
+       dateFormat.masks = {
+           "default": "ddd mmm dd yyyy HH:MM:ss",
+           shortDate: "m/d/yy",
+           mediumDate: "mmm d, yyyy",
+           longDate: "mmmm d, yyyy",
+           fullDate: "dddd, mmmm d, yyyy",
+           shortTime: "h:MM TT",
+           mediumTime: "h:MM:ss TT",
+           longTime: "h:MM:ss TT Z",
+           isoDate: "yyyy-mm-dd",
+           isoTime: "HH:MM:ss",
+           isoDateTime: "yyyy-mm-dd'T'HH:MM:ss",
+           isoUtcDateTime: "UTC:yyyy-mm-dd'T'HH:MM:ss'Z'"
+       };
+
+       // Internationalization strings
+       dateFormat.i18n = {
+           dayNames: [
+               "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat",
+               "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+           ],
+           monthNames: [
+               "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+               "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
+           ]
+       };
+
+       // For convenience...
+       Date.prototype.format = function (mask, utc) {
+           return dateFormat(this, mask, utc);
+       };
+   </script>
+    <style>
+        .artist-play-button {
+            margin-right: 8px;
+        }
+
+        #button-panel {
+            margin-top: 4px;
+        }
+
+        #the-form, #rp-now-playing {
+        }
+
+        #rp-now-playing {
+            overflow: hidden;
+        }
+
+        #rp-song-title {
+            font-weight: bold;
+            height: 16px;
+        }
+
+        #rp-artist-name {
+            height: 14px;
+        }
+
+        #rp-album-art {
+            height: 200px;
+        }
+
+        #play-all {
+            margin-top: 10px;
+            margin-left: 0px;
+        }
+
+        #info {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap" class="navbar navbar-inverse">
+        <div class="navbar-inner">
+            <h2>Project Experiment 3</h2>
+        </div>
+    </div>
+    
+
+    <div class="container">
+        <h1>Search if your favourite artist is playing in your city</h1>
+        <div class="row span12 well">
+            <div id="the-form" >
+               
+                <p class="lead">
+                    Enter your city and click the button to find the most anticipated shows in your area. On one click you will be enabled to
+                    buy a ticket for that show if you want!
+                </p>
+                <div>
+                    <div id='seed' class="input-append">
+                        <input type='text' class="input" id="location" placeholder="Enter your city (optional)">
+                        <button class="btn btn-primary" id="go" name="Play these artists"> Go</button>
+                    </div>
+                </div>
+               
+            </div>
+           
+
+            <div class="span4">
+                <h4 id='artist-name'> </h4>
+                <div id='bio'>
+                </div>
+            </div>
+        </div>
+        <div id="results" class="span12">
+            <table class="table table-striped table-hover table-bordered table-condensed">
+                <thead>
+                    <tr>
+                        <th> Name </th>
+                        <th> Date </th>
+                        <th> Venue </th>
+                        <th> Location </th>
+                        
+                    </tr>
+                </thead>
+                <tbody id='show-rows'></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="container">
+        <hr />
+        <h2>DOCUMENTATION</h2>
+        <ul>
+            <li>
+                This is the page where the artists performing in your city can be viewed .I have restricted it to few results for the sake of experiment.
+            </li>
+            <li>The users can come to know what all artists are playing in their area !</li>
+            <li>It also has an option of going to an online concert tickets sellig website where you can buy the ticket in one go!</li>
+
+            <li>I have not provided the source code since it includes my Keys</li>
+        </ul>
+        <hr />
+    </div>
+
+    <script type="text/javascript">
+        jQuery.ajaxSettings.traditional = true;
+        var api_key = 'AJYBC172TW7GL04YY';
+        var player = null;
+        var curArtist = null;
+        function format(index, item) {
+            var div = $("<div class='well clearfix'>");
+            var play = $("<span class='artist-play-button'>").html(
+                '<button class="btn btn-primary btn-mini"><i class="icon-white icon-play"></i> Play this artist</button>');
+            var title = $("<h4>").html((index + 1) + " - " + item.name);
+            div.append(title);
+            div.append(play);
+            play.click(function () {
+                fetchSongsForArtist(item.name, item.id);
+            });
+            var image_url = item.images.length > 0 ? item.images[0].url : null;
+            if (image_url) {
+                div.append($("<img style='float:left;margin-right:10px;max-width:250px;max-height:300px'>").attr('src', image_url));
+            }
+            div.append(getBio(item));
+            return div;
+        }
+        function getBestBio(bios) {
+            var best = null;
+            if (bios.length > 0) {
+                best = bios[0];
+                for (var i = 0; i < bios.length; i++) {
+                    if (bios[i].site == 'wikipedia') {
+                        best = bios[i];
+                    }
+                }
+            }
+            return best;
+        }
+        function formatBioText(bio) {
+            var text = bio.text;
+            text = text.replace('\r', '<br>');
+            text = text.replace('\n', '<br>');
+            dot = text.indexOf(".", 700);
+            if (dot == -1) {
+                dot = 700;
+            }
+            text = text.substring(0, dot + 1);
+            return text + "  ";
+        }
+        function getBio(item) {
+            var elem = $("<span>");
+            var bio = getBestBio(item.biographies);
+            if (bio) {
+                var a = $("<a>").attr('href', bio.url).text(" via " + bio.site);
+                var text = formatBioText(bio);
+                elem.html(text);
+                elem.append(a);
+            } else {
+                elem.text("(none)");
+            }
+            return elem;
+        }
+        function fetchBio(id) {
+            var url = 'http://developer.echonest.com/api/v4/artist/biographies';
+            var args = {
+                api_key: api_key,
+                id: id,
+                results: 10
+            };
+            $.getJSON(url, args,
+                function (data) {
+                    var bio = getBio(data.response);
+                    $("#bio").empty();
+                    $("#bio").append(bio);
+                },
+                function () {
+                    error("trouble getting songs for " + artistName);
+                }
+            );
+        }
+        function fetchSongsForArtist(artistName, artistID, button) {
+            var url = 'http://developer.echonest.com/api/v4/playlist/static';
+            var args = {
+                api_key: api_key,
+                bucket: ['id:rdio-US', 'tracks'],
+                limit: true,
+                type: 'artist',
+                artist_id: artistID,
+                results: 15
+            };
+            $.getJSON(url, args,
+                function (data) {
+                    var songs = data.response.songs
+                    if (!songs || songs.length == 0) {
+                        button.hide();
+                        error("NO rdio songs for " + artistName);
+                    } else {
+                        info("");
+                        player.addSongs(songs, true);
+                    }
+                },
+                function () {
+                    error("trouble getting songs for " + artistName);
+                }
+            );
+        }
+        function info(s) {
+            $("#info").removeClass();
+            if (s.length > 0) {
+                $("#info").addClass("alert alert-info");
+            }
+            $("#info").text(s);
+        }
+        function error(s) {
+            $("#info").removeClass();
+            if (s.length > 0) {
+                $("#info").addClass("alert alert-error");
+            }
+            $("#info").text(s);
+        }
+        function fmtTime(time) {
+            // return dateFormat(time, "dddd, mmmm dS, h:MM TT");
+            //return dateFormat(time, "mmmm dS, h:MM TT");
+            return time;
+        }
+        function showEvent(which, event) {
+            if (event.performers.length > 0) {
+                var div = $("<tr>");
+                var eventLink = $("<a>")
+                    .attr('href', event.url)
+                    .attr('target', 'seatgeek')
+                    .text(event.title)
+                div.append($("<td>").append(eventLink));
+                div.append($("<td>").text(fmtTime(event.datetime_local)));
+                div.append($("<td>").text(event.venue.name));
+                div.append($("<td>").text(event.venue.display_location));
+                var play = $('<button class="btn btn-primary btn-mini">').html('<i class="icon-white icon-play aplay"></i>');
+                var perf = event.performers[0];
+                var ids = [];
+                $.each(event.performers, function (i, perf) {
+                    ids.push('seatgeek:artist:' + perf.id);
+                });
+                ids = ids.slice(0, 5)
+                play.click(function () {
+                    //var icon = play.find('.icon-white');  // </i>
+                    //$(".aplay").removeClass("icon-forward");
+                    //$(".aplay").addClass("icon-play");
+                    //icon.addClass("icon-forward");
+                    //icon.removeClass("icon-play");
+                    fetchSongsForArtist(event.title, ids, play);
+                });
+               // div.append($("<td>").append(play));
+                $("#show-rows").append(div);
+            }
+        }
+        function fetchSeatGeekInfo(page) {
+            var url = 'http://api.seatgeek.com/2/events?callback=?';
+            var pageSize = 5;
+            var maxPages = 2;
+            var args = {
+                'taxonomies.name': 'concert',
+                'per_page': pageSize,
+                page: page
+            }
+            var location = $("#location").val();
+            if (location.length > 0) {
+                args['venue.city'] = location;
+                info("Searching for concerts in " + location);
+            } else {
+                args['geoip'] = true;
+                args['range'] = '50mi';
+                info("Searching for nearby concerts ...");
+            }
+            if (page <= 1) {
+                $("#results").show();
+                $("#show-rows").empty();
+            }
+            $.getJSON(url, args,
+                function (data) {
+                    if (page == 1 && data.events.length === 0) {
+                        error("Can't find any concerts in " + location);
+                    } else {
+                        info("");
+                    }
+                    $.each(data.events, function (i, event) {
+                        if (event.score > 0) {
+                            showEvent(i, event);
+                        }
+                    });
+                    if (data.events.length == pageSize && page < maxPages) {
+                        fetchSeatGeekInfo(page + 1);
+                    }
+                }
+            ).error(function () {
+                info("trouble getting Seatgeek data");
+            });
+        }
+        function go() {
+            fetchSeatGeekInfo(1);
+        }
+        function newSong(song) {
+            if (curArtist !== song.artist_id) {
+                curArtist = song.artist_id;
+                $("#artist-name").text(song.artist_name);
+                fetchBio(song.artist_id);
+            }
+        }
+        $(document).ready(function () {
+            // fetchApiKey will fetch the Echo Nest demo key for demos
+            // hosted on The Echo Nest, otherwise it fetch an empty key
+            fetchApiKey(function (key, isLoggedIn) {
+                if (!api_key) {
+                    api_key = 'AJYBC172TW7GL04YY';
+                }
+                api_key = key;
+                $.ajaxSetup({ cache: false });
+                $("#results").hide();
+                $("#go").click(function () {
+                    go();
+                });
+                $("#location").keydown(
+                    function () {
+                        if (event.keyCode == 13) {
+                            go();
+                        }
+                    });
+                player = getRdioPlayer(function () {
+                    player.setCallback(newSong);
+                }, false);
+            });
+        });
+    </script>
+</body>
+</html>

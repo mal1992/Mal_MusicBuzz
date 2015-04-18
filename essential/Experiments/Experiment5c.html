@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Google maps</title>
+    <link href="Exp5c.css" rel="stylesheet" />
+    <script src="http://maps.googleapis.com/maps/api/js">
+    </script>
+
+    <script>
+        function initialize() {
+            var mapProp = {
+                center: new google.maps.LatLng(42.3600825, -71.0588801),
+                zoom: 9,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var mapProp2 = {
+                center: new google.maps.LatLng(42.3600825, -71.0588801),
+                zoom: 9,
+                mapTypeId: google.maps.MapTypeId.SATELLITE
+            };
+            var mapProp3 = {
+                center: new google.maps.LatLng(42.3600825, -71.0588801),
+                zoom: 9,
+                mapTypeId: google.maps.MapTypeId.HYBRID
+            };
+            var mapProp4 = {
+                center: new google.maps.LatLng(42.3600825, -71.0588801),
+                zoom: 9,
+                mapTypeId: google.maps.MapTypeId.TERRAIN
+            };
+            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+            var map2 = new google.maps.Map(document.getElementById("googleMap2"), mapProp2);
+            var map3 = new google.maps.Map(document.getElementById("googleMap3"), mapProp3);
+        
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+</head>
+
+<body>
+    <div id="container">
+        <h2>Google Maps : 3 Different kind</h2>
+        <div id="googleMap" style="width:400px;height:300px;margin:0 auto"></div>
+        <br>
+        <div id="googleMap2" style="width:400px;height:300px;margin:0 auto"></div>
+        <br>
+        <div id="googleMap3" style="width:400px;height:300px;margin:0 auto"></div>
+        <br>
+        <hr />
+        <h2>DOCUMENTATION</h2>
+        <ul>
+          <li>Using the google api for map we display 3 different kinds of map</li>
+            <li>The details will be found in google maps developer api.</li>
+            <li>the Map can be zoomed and view to your convienience</li>
+        </ul>
+        <hr />
+        <h2 style="font-family:LilyUPC;font-size:xx-large">Source Code</h2>
+        <a href="../../mal/fileview/default.aspx?~/Experiments\Experiment5c.html" target="_blank" style="font-family:LilyUPC;font-size:x-large">Source Code: HTML</a>
+        <br />
+        <a href="../../mal/fileview/default.aspx?~/Experiments\Exp5c.js" target="_blank" style="font-family:LilyUPC;font-size:x-large">Source Code: JS</a>
+        <br />
+        <a href="../../mal/fileview/default.aspx?~/Experiments\Exp5c.css" target="_blank" style="font-family:LilyUPC;font-size:x-large">Source Code: JS</a>
+
+        <h2 style="font-family:LilyUPC;font-size:xx-large">References</h2>
+        <ul>
+            <li>
+                <a href="http://www.restapitutorial.com/?utm_expid=59305729-0._AkKuacFSlaUc_EB2EKW5w.0&utm_referrer=http%3A%2F%2Fwww.google.com%2Furl%3Fsa%3Dt%26rct%3Dj%26q%3D%26esrc%3Ds%26source%3Dweb%26cd%3D2%26ved%3D0CCkQFjAB%26url%3Dhttp%253A%252F%252Fwww.restapitutorial.com%252F%26ei%3DZdjnVIzZEqOxsAS4xYGYBw%26usg%3DAFQjCNFbGLRZCBqnTgR87kIdacyoAQ9RIw%26bvm%3Dbv.86475890%2Cd.cWc" style="font-family:LilyUPC;font-size:x-large">How to learn REST</a>
+            </li>
+            <li>
+                <a href="http://www.w3schools.com/googleapi/" style="font-family:LilyUPC;font-size:x-large">Google API Tutorial</a>
+            </li>
+        </ul>
+    </div>
+   
+
+</body>
+</html>

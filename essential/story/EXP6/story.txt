@@ -1,0 +1,10 @@
+﻿    File: storysource/story.txt
+    ... for access to the Story Utility source
+
+../../Experiments/Experiment5c.html            Different ways of displaying Google Maps using Google Maps API
+../../Experiments/Experiment5b.html            Youtube API
+../../Experiments/Experiment5a.html            Get Movie Info using an API
+
+
+
+

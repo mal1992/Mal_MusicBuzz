@@ -1,0 +1,10 @@
+﻿    File: storysource/story.txt
+    ... for access to the Story Utility source
+
+../../Experiments/Experiment1a.html            Experiment1a
+../../Experiments/Experiment1b.html            Experiment1b
+../../Experiments/Experiment1c.html            Experiment1c
+../../Experiments/Experiment1d.html            Experiment1d
+
+
+

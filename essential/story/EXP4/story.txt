@@ -1,0 +1,10 @@
+﻿    File: storysource/story.txt
+    ... for access to the Story Utility source
+
+../../Experiments/Experiment3b.html            Jquery function on User Input
+../../Experiments/Experiment3c.html            Collect and Display Info from a Form
+../../Experiments/Experiment3a.html            Memory Cracker using Jquery
+../../Experiments/Experiment3d.html            Custom-Made Jquery Slider
+
+
+

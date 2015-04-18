@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+         body {
+            background-image: url("../images/background.jpg");
+        }
+       *{
+           color:white;
+           font-family:cursive;
+           font-size:25px;
+       }
+        
+ #container{
+            width:900px;
+            height:1400px;
+            margin:0 auto;
+            border:double;
+            background-color:rgba(0,0,0,0.6);
+            border-radius: 25px;
+            opacity: 0.6;
+        }
+
+        @media only screen and (max-width: 1100px) {
+            #container { width: 90%;
+                         background-color:mediumpurple;
+            }
+            *{
+                color:black;
+                font-size:20px;
+            }
+        }
+
+         @media only screen and (max-width: 800px){
+             #container{
+                 background-color:maroon;
+             }
+              *{
+                  color:white;
+                font-size:15px;
+            }
+         }
+    </style>
+</head>
+<body>
+    <div id="container">
+        
+        <h1>RESPONSIVE TEXT/RESPOSNSIVE DIV</h1>
+
+        <p>Responsive design is a web design and development technique that creates a site or system that reacts to the size of a user’s screen. Responsive design will optimise a user’s browsing experience by creating a flexible and responsive web page, optimised for the device that is accessing it.
+
+There has been a distinct audience shift towards mobile browsing and responsive design represents the simplest 
+        way to reach users across multiple devices and ensures a seamless user experience. 
+        2013 has been hailed as the ‘Year of Responsive Design’,
+         and with increasing preference of readers to read news online across multiple devices
+         (i.e. tablets and smartphones), responsive design is becoming increasingly important</p>
+
+
+
+        <h2>Documentation</h2>
+        <p>In this Experiement, we see how we can make a page responsive
+        <ol>
+            <li>Notice how the "div" gets resized as the Page gets smaller and the background color also changes.I have kept 3 breakpoints where the elements get resized.It can be figured out by the changes in the color</li>
+            <li>The Font keeps getting smaller as the screen size decreases. 3 fonts sizes have been used for 3 different screen sizes</li>
+            <li>The 3 break points can be noticed when the color changes.</li>
+        </ol>
+        </p>
+
+
+        <h2 style="color:white;font-family:LilyUPC;font-size:xx-large">Source Code</h2>
+        <a href="../../mal/fileview/default.aspx?~/Experiments\Experiment1c.html" target="_blank" style="color:white;font-family:LilyUPC;font-size:x-large">Source Code: HTML</a>
+        <h2 style="color:white;font-family:LilyUPC;font-size:xx-large">References</h2>
+        <ul>
+            <li>
+                <a href="http://webdesign.tutsplus.com/tutorials/a-beginners-introduction-to-css-animation--cms-21068" style="color:white;font-family:LilyUPC;font-size:x-large">WebDesign.net</a>
+            </li>
+            <li>
+                <a href="http://designshack.net" style="color:white;font-family:LilyUPC;font-size:x-large">DesignShack-animation</a>
+            </li>
+        </ul>
+        </div>
+</body>
+</html>

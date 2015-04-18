@@ -1,0 +1,8 @@
+﻿    File: storysource/story.txt
+    ... for access to the Story Utility source
+
+../../Experiments/Experiment10a.html            Retreive Artist Performance details
+
+
+
+

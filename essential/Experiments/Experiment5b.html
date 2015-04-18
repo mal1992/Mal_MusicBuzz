@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="Exp5b.css" rel="stylesheet" />
+    <script src="Exp5b.js"></script>
+</head>
+<body>
+    <div id="container">
+        <h2>Get data from You tube</h2>
+        <p>Enter any keyword you want, get the related videos available in youtube</p>
+        <p>When you click the video , you will be directed to youtube website</p>
+        <div id="control" style="margin:0 auto;text-align:center">
+            <div>
+                <input type="text" id="query" placeholder="Enter any keyword" style="color:black" />
+                <input type="submit" value="search" onclick="findvideo()" style="color:black">
+            </div>
+        </div>
+        <br />
+
+        <div id="videoframe">
+        </div>
+
+        <p><small><a href="#" title="The videos will be displayed here">
+            </a></small></p>
+        <hr />
+        <h2>DOCUMENTATION</h2>
+        <ul>
+           <li>The data is received in the form of JSON and the videos are displayed</li>
+            <li>I have limited the number of results to a maximum of 8 , the number of results to be displayed can be manually adjusted</li>
+       <li>When you enter any invalid keyword then it will display a error message so all conditions are handled.</li>
+         </ul>
+        <hr />
+        <h2 style="font-family:LilyUPC;font-size:xx-large">Source Code</h2>
+        <a href="../../mal/fileview/default.aspx?~/Experiments\Experiment5b.html" target="_blank" style="font-family:LilyUPC;font-size:x-large">Source Code: HTML</a>
+        <br />
+        <a href="../../mal/fileview/default.aspx?~/Experiments\Exp5b.js" target="_blank" style="font-family:LilyUPC;font-size:x-large">Source Code: JS</a>
+        <br />
+        <a href="../../mal/fileview/default.aspx?~/Experiments\Exp5b.css" target="_blank" style="font-family:LilyUPC;font-size:x-large">Source Code: JS</a>
+
+        <h2 style="font-family:LilyUPC;font-size:xx-large">References</h2>
+        <ul>
+            <li>
+                <a href="http://www.restapitutorial.com/?utm_expid=59305729-0._AkKuacFSlaUc_EB2EKW5w.0&utm_referrer=http%3A%2F%2Fwww.google.com%2Furl%3Fsa%3Dt%26rct%3Dj%26q%3D%26esrc%3Ds%26source%3Dweb%26cd%3D2%26ved%3D0CCkQFjAB%26url%3Dhttp%253A%252F%252Fwww.restapitutorial.com%252F%26ei%3DZdjnVIzZEqOxsAS4xYGYBw%26usg%3DAFQjCNFbGLRZCBqnTgR87kIdacyoAQ9RIw%26bvm%3Dbv.86475890%2Cd.cWc" style="font-family:LilyUPC;font-size:x-large">How to learn REST</a>
+            </li>
+            <li>
+                <a href="http://www.mediawiki.org/wiki/API:Tutorial" style="font-family:LilyUPC;font-size:x-large">API:Tutorial</a>
+            </li>
+        </ul>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+﻿
+         *{
+           font-family: cursive;
+           color:black;
+       }
+          body {
+    background-image: url("../images/green-bg.jpg");
+    }
+       
+    #container {
+    width: 900px;
+    height: 1700px;
+    margin: 0 auto;
+    border: double;
+    background-color: white;
+    border-radius: 25px;
+    opacity: 0.7;
+    /*For IE : this is required !!! */
+    filter: alpha(opacity=60);
+    }
+    a, a:visited {
+	outline:none;
+	color:#389dc1;
+}
+
+a:hover{
+	text-decoration:none;
+}
+
+section, footer, header, aside, nav{
+	display: block;
+}
+
+/*-------------------------
+	The search input
+--------------------------*/
+
+.bar{
+	
+
+	background-color:black;
+
+	box-shadow: 0 1px 1px #ccc;
+	border-radius: 2px;
+	width: 400px;
+	padding: 14px;
+	margin: 45px auto 20px;
+	position:relative;
+}
+
+.bar input{
+	background:#fff no-repeat 13px 13px;
+	
+	border: none;
+	width: 100%;
+	line-height: 19px;
+	padding: 11px 0;
+
+	border-radius: 2px;
+	box-shadow: 0 2px 8px #c4c4c4 inset;
+	text-align: left;
+	font-size: 14px;
+	font-family: inherit;
+	color: #738289;
+	font-weight: bold;
+	outline: none;
+	text-indent: 40px;
+}
+
+ul{
+	list-style: none;
+	width: 428px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+ul li{
+	border-bottom: 1px solid #ddd;
+	padding: 10px;
+	overflow: hidden;
+}
+
+ul li img{
+	width:60px;
+	height:60px;
+	float:left;
+	border:none;
+}
+
+ul li p{
+	margin-left: 75px;
+	font-weight: bold;
+	padding-top: 12px;
+	color:#6e7a7f;
+}
+    
+     @media only screen and (max-width: 1100px) {
+
+
+           * {
+               font-size: 15px;
+           }
+
+           #container {
+               width: 90%;
+           }
+       }
+ 

@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script src="Exp4a.js"></script>
+    <link href="Exp4a.css" rel="stylesheet" />
+   
+</head>
+<body>
+    <div id="container">
+        <h2> Filtering using angular</h2>
+        <p>Enter any keyword from the list and see the filter being applied on the list</p>
+        <div ng-app="instantSearch" ng-controller="InstantSearchController">
+
+            <div class="bar">
+              
+                <input type="text" ng-model="searchString" placeholder="Enter what you want to search " />
+            </div>
+
+            <ul>
+                
+                <li ng-repeat="i in items | searchFor:searchString" style="width:300px;height:90px" >
+                    <a href="{{i.url}}"><img ng-src="{{i.image}}" /></a>
+                    <p>{{i.title}}</p>
+                </li>
+            </ul>
+        </div>
+
+        <hr />
+        <h2>DOCUMENTATION</h2>
+        <p>A Simple filter operation on a list is being done here.Based on some keyword entered in the input box , this filtering happens.</p>
+        <p>The ng-controller in the HTML code acts as the controller to with the model and the view will come to..This follows a Perfect MVC  DEsign</p>
+        <p>
+            <pre>
+                                    angular.forEach(arr, function(item){
+		                         if (item.title.toLowerCase().indexOf(searchString) !== -1) {
+		                          result.push(item);
+		                             }
+            </pre>
+
+            This will compare each word we type and compares it to the existing field and returns the filtered result. In this code , item 
+            item is every word we type and result is the final search phrase. This event happens after every keyup .
+        </p>
+         <hr />
+        <h2 style="font-family:LilyUPC;font-size:xx-large">Source Code</h2>
+        <a href="../../mal/fileview/default.aspx?~/Experiments\Experiment4a.html" target="_blank" style="font-family:LilyUPC;font-size:x-large">Source Code: HTML</a>
+        <br />
+        <a href="../../mal/fileview/default.aspx?~/Experiments\Exp4a.js" target="_blank" style="font-family:LilyUPC;font-size:x-large">Source Code: JS</a>
+
+        <h2 style="font-family:LilyUPC;font-size:xx-large">References</h2>
+        <ol>
+            <li>
+                <a href="https://thinkster.io/a-better-way-to-learn-angularjs/" style="font-family:LilyUPC;font-size:x-large">thinkster-Angular Tutorial</a>
+            </li>
+            <li>
+                <a href="https://egghead.io/articles/new-to-angularjs-start-learning-here" style="font-family:LilyUPC;font-size:x-large">Egghead.io</a>
+            </li>
+        </ol>
+
+    </div>
+</body>
+</html>

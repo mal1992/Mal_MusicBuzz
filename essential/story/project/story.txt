@@ -1,0 +1,22 @@
+﻿    File: storysource/story.txt
+    ... for access to the Story Utility source
+
+
+../../Documentation/ProjectOverview.html			Project OverView
+../../Documentation/Acknowledgement.html            Acknowledgement
+../../Documentation/HomePage.html					HomePage
+../../Documentation/ArtistNews.html					Artist-News
+../../Documentation/ArtistDetails.html				Artist-pedia
+../../Documentation/ArtistReview.html				Artist Review
+../../Documentation/Top10.html						Top 20 Artists
+../../Documentation/Contact.html					Contact
+../../Documentation/Aboutme.html					About Me
+../../Documentation/BrowserPreference.html          Browser Preference
+../../Documentation/FutureWork.html					Future Work
+
+
+
+
+
+
+
